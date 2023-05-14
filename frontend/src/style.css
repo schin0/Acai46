@@ -1,3 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+    --roxo-escuro: #5A19B4;
+    --roxo: #AA6CFF;
+    --roxo-claro: #E2CDFF;
+    --branco: #ffffff;
+    --verde: #58C585;
+    --amarelo: #FCD700;
+    --cinza: #E3E3E3;
+}
+
+
 * {
-    color: red;
+    /* color: var(--roxo); */
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar-telas {
+    margin: 1vw;
+    background-color: var(--roxo) !important;
+    padding-left: 2vw;
+}
+
+.navbar-telas a {
+    font-weight: 600;
+}
+
+#sec-login {
+    background-color: var(--roxo-claro);
+    margin: 10vh 25vw;
+}
+
+.input-group-text {
+    background-color: var(--branco);
+}
+
+.col-auto input {
+    width: 100%;
+}
+
+
+
+
+
+.txt-branco {
+    color: var(--branco) !important;
+}
+
+.b-r-20 {
+    border-radius: 20px;
 }
