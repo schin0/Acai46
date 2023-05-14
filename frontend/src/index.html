@@ -20,50 +20,67 @@
 <body>
     <header>
         <nav class="navbar navbar-light bg-light navbar-telas b-r-20">
-            <a class="navbar-brand txt-branco" href="#">
-                <img src="../assets/img/logo_acai_46.jpg" width="30" height="30" class="d-inline-block align-top"
-                    alt="Logo Açaí 46">
-                Açaí 46
+            <a class="navbar-brand txt-branco d-flex align-items-center" href="#">
+                <span class="material-symbols-outlined" id="logo-sorvete">
+                    icecream
+                </span>
+                <span>Açaí 46</span>
             </a>
         </nav>
     </header>
 
     <main>
-        <section id="sec-login" class="b-r-20">
-            <div>
-                <span class="material-symbols-outlined">
-                    login
-                </span>
-                <p>Login:</p>
-            </div>
-            <div>
-                <form>
-                    <div class="form-row align-items-center">
-                        <div class="col-auto">
-                            <label class="sr-only" for="inlineFormInputGroup">Username</label>
-                            <div class="input-group mb-2">
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text">@</div>
+        <section id="section-login">
+            <div id="div-login" class="b-r-20">
+                <div id="title-login" class="txt-branco d-flex j-c-center">
+                    <div class="d-flex j-c-space-around title-login">
+                        <span class="material-symbols-outlined">
+                            login
+                        </span>
+                        Login
+                    </div>
+                </div>
+                <div>
+                    <form id="form-login" class="d-flex j-a-center align-items-center">
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <label class="sr-only" for="usuario">Usuário</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text b-r-20">
+                                            <span class="material-symbols-outlined">
+                                                account_circle
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="form-control b-r-20" id="usuario" placeholder="Usuário">
                                 </div>
-                                <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Usuário">
                             </div>
                         </div>
-                    </div>
-                    <div class="form-row align-items-center">
-                        <div class="col-auto">
-                            <label class="sr-only" for="inlineFormInput">Name</label>
-                            <input type="password" class="form-control mb-2" id="inlineFormInput" placeholder="Senha">
+                        <div class="form-row align-items-center">
+                            <div class="col-auto">
+                                <label class="sr-only" for="senha">Senha</label>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text b-r-20">
+                                            <span class="material-symbols-outlined">
+                                                lock
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <input type="password" class="form-control b-r-20" id="senha" placeholder="Senha">
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </form>
-                <div>
-                    <!-- Botões -->
+                        <div class="form-row align-items-center m-b-0">
+                            <div id="btn-login" class="col-auto d-flex j-c-space-between align-items-center">
+                                <a href="javascript:void(0)">Esqueci minha senha</a>
+                                <button type="button" class="btn btn-success b-r-20">Entrar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </section>
-        <section>
-            <h1>Lista de itens</h1>
-            <ul id="lista"></ul>
         </section>
     </main>
 
