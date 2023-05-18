@@ -13,9 +13,13 @@ import godigital.repository.ColaboradorRepository;
 @Service
 public class ColaboradorService {
 
-    @Autowired
     private ColaboradorRepository colaboradorRepository;
 
+    @Autowired
+    public ColaboradorService(ColaboradorRepository colaboradorRepository) {
+    	this.colaboradorRepository = colaboradorRepository;
+    }
+    
     public List<ColaboradorDTO> listarColaboradores() {
         List<Colaborador> colaboradores = (List<Colaborador>) colaboradorRepository.findAll();
         List<ColaboradorDTO> colaboradoresDTO = new ArrayList<>();

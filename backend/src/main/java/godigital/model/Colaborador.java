@@ -38,6 +38,14 @@ public class Colaborador {
     @Column(name = "DT_ADMISSAO")
     private Date dataAdmissao;
 
+    public Colaborador() {
+    }
+
+    public Colaborador(String nome, String senha) {
+    	setNome(nome);
+    	setSenha(senha);
+    }
+
     public Long getId() {
         return id;
     }
