@@ -5,7 +5,7 @@ function efetuarLogin(usuario, senha) {
     };
 
     // Faz a requisição POST para o endpoint de login
-    fetch('http://localhost:8080/colaboradores/login', {
+    fetch('http://localhost:8080/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
