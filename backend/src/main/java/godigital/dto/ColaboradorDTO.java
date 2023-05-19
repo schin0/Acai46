@@ -61,14 +61,14 @@ public class ColaboradorDTO {
 	public Date getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(java.util.Date dataNascimento) {
-		this.dataNascimento = (Date) dataNascimento;
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
 	}
 	public Date getDataAdmissao() {
 		return dataAdmissao;
 	}
-	public void setDataAdmissao(java.util.Date dataAdmissao) {
-		this.dataAdmissao = (Date)dataAdmissao;
+	public void setDataAdmissao(Date dataAdmissao) {
+		this.dataAdmissao = dataAdmissao;
 	}
 	
 	private String formatarCPF(String cpf) {
