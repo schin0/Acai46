@@ -33,7 +33,132 @@
     </header>
 
     <main>
-       <section id="dados"></section>
+        <section id="dados">
+            <div id="topo-form" class="d-flex align-items-center j-c-center">
+                <span class="material-symbols-outlined">
+                    supervised_user_circle
+                </span>
+                <h4 id="titulo"></h4>
+            </div>
+            <div id="form">
+                <form id="form-colaborador" class="d-flex j-a-center align-items-center">
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text b-r-20">
+                                        <span class="material-symbols-outlined">
+                                            person
+                                        </span>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control b-r-20" id="nome-colaborador"
+                                    name="nome-colaborador" placeholder="Nome do colaborador">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text b-r-20">
+                                        <span class="material-symbols-outlined">
+                                            assignment_ind
+                                        </span>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control b-r-20" id="cpf" name="cpf" placeholder="CPF">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text b-r-20">
+                                        <span class="material-symbols-outlined">
+                                            phone
+                                        </span>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control b-r-20" id="celular" name="celular"
+                                    placeholder="Celular">
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text b-r-20">
+                                        <span class="material-symbols-outlined">
+                                            email
+                                        </span>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control b-r-20" id="email" name="email"
+                                    placeholder="Email">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text b-r-20">
+                                        <span class="material-symbols-outlined">
+                                            work
+                                        </span>
+                                    </div>
+                                </div>
+                                <input type="text" class="form-control b-r-20" id="cargo" name="cargo"
+                                    placeholder="Cargo">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <div class="input-group mb-2 input-data">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text b-r-20">
+                                        <span class="material-symbols-outlined">
+                                            date_range
+                                        </span>
+                                    </div>
+                                </div>
+                                <input type="date" class="form-control" id="data-nascimento"
+                                    name="data-nascimento" placeholder="Data de Nascimento">
+                                <label for="data-nascimento">Data de Nascimento</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-row align-items-center">
+                        <div class="col-auto">
+                            <div class="input-group mb-2 input-data">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text b-r-20">
+                                        <span class="material-symbols-outlined">
+                                            date_range
+                                        </span>
+                                    </div>
+                                </div>
+                                <input type="date" class="form-control" id="data-admissao" name="data-admissao"
+                                    placeholder="Data de Admissão">
+                                <label for="data-admissao">Data de Admissão</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row align-items-center m-b-0">
+                        <div id="btn-login" class="col-auto d-flex j-c-space-between align-items-center">
+                            <button type="button" class="btn b-r-20" id="btn-cancelar">Cancelar</button>
+                            <button type="button" class="btn b-r-20" id="btn-salvar">Salvar</button>
+                            <button type="button" class="btn b-r-20" id="btn-voltar">Voltar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
     </main>
 
     <!-- Bootstrap JS -->
