@@ -46,6 +46,7 @@ function montarLinhaTabela(nome, id) {
 function visualizarColaborador(id) {
     const url = new URLSearchParams();
     url.set('id', id);
+    url.set('acao', 'visualizar');
 
     const paginaColaborador = `../colaborador/colaborador.html?${url.toString()}`;
     window.location.href = paginaColaborador;
