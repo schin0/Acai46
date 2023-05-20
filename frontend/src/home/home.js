@@ -9,7 +9,6 @@ pesquisa.addEventListener('keydown', (e) => {
     }
 });
 
-
 function listarColaboradores(nome = '') {
     const tabela = document.getElementById('tabela');
     tabela.innerHTML = '';
@@ -37,19 +36,27 @@ function montarLinhaTabela(nome, id) {
                 <td class="nome">${nome}</td>
                 <td class="acoes">
                     <i class="material-icons excluir">delete</i>
-                    <i class="material-icons editar">edit</i>
-                    <i class="material-icons visualizar" onclick="visualizarColaborador(${id})">visibility</i>
+                    <i class="material-icons editar" onclick="processarAcaoColaborador('editar', ${id})">edit</i>
+                    <i class="material-icons visualizar" onclick="processarAcaoColaborador('visualizar', ${id})">visibility</i>
                 </td>
             </tr>`;
 }
 
-function visualizarColaborador(id) {
+function processarAcaoColaborador(acao, id = null) {
     const url = new URLSearchParams();
+    url.set('acao', acao);
     url.set('id', id);
-    url.set('acao', 'visualizar');
 
     const paginaColaborador = `../colaborador/colaborador.html?${url.toString()}`;
     window.location.href = paginaColaborador;
+}
+
+document.getElementById('btn-adicionar').addEventListener('click', () => {
+    processarAcaoColaborador('adicionar');
+});
+
+function redirecionarParaFormulario() {
+
 }
 
 listarColaboradores();
