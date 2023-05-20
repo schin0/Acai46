@@ -20,8 +20,8 @@ public class ColaboradorService {
     	this.colaboradorRepository = colaboradorRepository;
     }
     
-    public List<ColaboradorDTO> listarColaboradores() {
-        List<Colaborador> colaboradores = (List<Colaborador>) colaboradorRepository.findAll();
+    public List<ColaboradorDTO> listarColaboradores(String nome) {
+        List<Colaborador> colaboradores = (List<Colaborador>) colaboradorRepository.findByNomeContainingIgnoreCase(nome);
         List<ColaboradorDTO> colaboradoresDTO = new ArrayList<>();
 
         for (Colaborador colaborador : colaboradores) {

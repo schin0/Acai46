@@ -116,7 +116,7 @@
 
 #btn-login button {
     min-width: 100px;
-    background-color: #58C585;
+    background-color: var(--verde);
 }
 
 /* Estilos gerais: */
