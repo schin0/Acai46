@@ -142,8 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const parametros = new URLSearchParams(url);
 
     processarAcoes(parametros);
-    debugger
-    let oi = parametros.get('id');
+
     if (parametros.get('id') != "null")
         processarDados(parametros);
 });

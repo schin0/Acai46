@@ -65,5 +65,11 @@ public class ColaboradorService {
     	return new ColaboradorDTO(colaboradorRepository.save(colaborador));
     }
     
+    public boolean excluirColaborador(Long id) {
+    	colaboradorRepository.deleteById(id);
+    	
+    	return true;
+    }
+    
 }
 

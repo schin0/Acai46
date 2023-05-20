@@ -35,7 +35,7 @@ function montarLinhaTabela(nome, id) {
                 </td>
                 <td class="nome">${nome}</td>
                 <td class="acoes">
-                    <i class="material-icons excluir">delete</i>
+                    <i class="material-icons excluir" onclick="excluirColaborador('${nome}', ${id})">delete</i>
                     <i class="material-icons editar" onclick="processarAcaoColaborador('editar', ${id})">edit</i>
                     <i class="material-icons visualizar" onclick="processarAcaoColaborador('visualizar', ${id})">visibility</i>
                 </td>
@@ -55,8 +55,25 @@ document.getElementById('btn-adicionar').addEventListener('click', () => {
     processarAcaoColaborador('adicionar');
 });
 
-function redirecionarParaFormulario() {
+function excluirColaborador(nome, id) {
+    const confirmacao = window.confirm(`Deseja mesmo excluir o colaborador ${nome}?`);
 
+    if (confirmacao) {
+        fetch(`http://localhost:8080/colaboradores/excluir/?id=${id}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.json())
+            .then(sucesso => {
+                if (sucesso)
+                    console.log('colaborador excluído com sucesso!');
+
+                let nome = document.getElementById('nome-colaborador').value;
+                listarColaboradores(nome);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
 }
 
 listarColaboradores();
