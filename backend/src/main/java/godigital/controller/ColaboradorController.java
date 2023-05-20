@@ -25,7 +25,13 @@ public class ColaboradorController {
     @CrossOrigin(origins = "*")
     @GetMapping
     public List<ColaboradorDTO> listarColaboradores(@RequestParam(required = false) String nome) {
-        return (List<ColaboradorDTO>) colaboradorService.listarColaboradores(nome);
+        return colaboradorService.listarColaboradores(nome);
+    }
+    
+    @CrossOrigin(origins = "*")
+    @GetMapping("obter/")
+    public ColaboradorDTO obterColaborador(@RequestParam(required = false) Long id) {
+        return colaboradorService.obterColaborador(id);
     }
 }
 

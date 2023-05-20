@@ -2,6 +2,7 @@ package godigital.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,12 @@ public class ColaboradorService {
         }
 
         return colaboradoresDTO;
+    }
+    
+    public ColaboradorDTO obterColaborador(Long id) {
+    	Optional<Colaborador> colaborador = colaboradorRepository.findById(id);
+    	
+    	return new ColaboradorDTO(colaborador);
     }
     
 }
