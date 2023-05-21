@@ -5,15 +5,15 @@ function obterColaborador(id) {
         method: 'GET'
     })
         .then(response => response.json())
-        .then(colaborador => {
-            preencherCampos(colaborador);
+        .then(async colaborador => {
+            await preencherCampos(colaborador);
         })
         .catch(error => {
             console.error(error);
         });
 }
 
-function preencherCampos(colaborador) {
+async function preencherCampos(colaborador) {
     const nome = document.getElementById('nome-colaborador');
     const cpf = document.getElementById('cpf');
     const email = document.getElementById('email');
@@ -24,7 +24,7 @@ function preencherCampos(colaborador) {
     nome.value = colaborador.nome;
     cpf.value = colaborador.cpf;
     email.value = colaborador.email;
-    cargo.value = colaborador.cargo.descricao;
+    cargo.value = colaborador.cargo.id;
     dataNascimento.value = formatarData(colaborador.dataNascimento);
     dataAdmissao.value = formatarData(colaborador.dataAdmissao);
 
@@ -60,17 +60,19 @@ function processarDadosColaborador() {
     const nome = document.getElementById('nome-colaborador').value;
     const cpf = document.getElementById('cpf').value;
     const email = document.getElementById('email').value;
-    const cargo = document.getElementById('cargo').value;
-    const cargoId = parseInt(document.getElementById('cargo').name.split("-")[1]);;
     const dataNascimento = document.getElementById('data-nascimento').value;
     const dataAdmissao = document.getElementById('data-admissao').value;
+
+    const cargo = document.getElementById('cargo');
+    const cargoDescricao = cargo.options[cargo.selectedIndex].textContent;
+    const cargoId = cargo.value;
 
     const cpfSemMascara = cpf.replace(/[^\d]/g, "");
 
     const dados = {
         id: id,
         cargo: {
-            descricao: cargo,
+            descricao: cargoDescricao,
             id: cargoId
         },
         cpf: cpfSemMascara,
@@ -99,9 +101,8 @@ function editarColaborador(dados) {
         body: JSON.stringify(dados)
     })
         .then(response => response.json())
-        .then(colaborador => {
-            console.log(colaborador);
-            preencherCampos(colaborador);
+        .then(async colaborador => {
+            await preencherCampos(colaborador);
         })
         .catch(error => {
             console.error(error);
@@ -117,8 +118,8 @@ function adicionarColaborador(dados) {
         body: JSON.stringify(dados)
     })
         .then(response => response.json())
-        .then(colaborador => {
-            preencherCampos(colaborador);
+        .then(async colaborador => {
+            await preencherCampos(colaborador);
         })
         .catch(error => {
             console.error(error);
@@ -142,6 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const parametros = new URLSearchParams(url);
 
     processarAcoes(parametros);
+    listarCargos();
 
     if (parametros.get('id') != "null")
         processarDados(parametros);
@@ -188,6 +190,30 @@ function processarAcaoPadrao() {
     const btnVoltar = document.getElementById('btn-voltar');
 
     btnVoltar.style.display = 'none';
+}
+
+function listarCargos() {
+    fetch(`http://localhost:8080/cargo`, {
+        method: 'GET'
+    })
+        .then(response => response.json())
+        .then(cargos => {
+            processarCargos(cargos);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+function processarCargos(cargos) {
+    const select = document.getElementById('cargo');
+
+    cargos.forEach(cargo => {
+        var opcao = document.createElement("option");
+        opcao.value = cargo.id;
+        opcao.text = cargo.descricao;
+        select.appendChild(opcao);
+    });
 }
 
 function processarDados(parametros) {
