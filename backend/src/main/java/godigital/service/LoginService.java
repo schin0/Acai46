@@ -28,7 +28,7 @@ public class LoginService {
         return colaborador != null && colaborador.getSenha().equals(hash);
     }
     
-    private String gerarHash(String senha) {
+    public String gerarHash(String senha) {
         try {
             MessageDigest sha1 = MessageDigest.getInstance("SHA-1");
             byte[] hash = sha1.digest(senha.getBytes());

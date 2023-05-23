@@ -15,10 +15,12 @@ import godigital.repository.ColaboradorRepository;
 public class ColaboradorService {
 
     private ColaboradorRepository colaboradorRepository;
+    private LoginService loginService;
 
     @Autowired
-    public ColaboradorService(ColaboradorRepository colaboradorRepository) {
+    public ColaboradorService(ColaboradorRepository colaboradorRepository, LoginService loginService) {
     	this.colaboradorRepository = colaboradorRepository;
+    	this.loginService = loginService;
     }
     
     public List<ColaboradorDTO> listarColaboradores(String nome) {
@@ -62,6 +64,9 @@ public class ColaboradorService {
     
     public ColaboradorDTO adicionarColaborador(Colaborador colaborador) {
     	colaborador.setId(1L);
+    	
+    	colaborador.setSenha(loginService.gerarHash(colaborador.getSenha()));;
+    	
     	return new ColaboradorDTO(colaboradorRepository.save(colaborador));
     }
     
