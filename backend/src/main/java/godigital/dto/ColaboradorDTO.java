@@ -1,6 +1,7 @@
 package godigital.dto;
 
 import java.util.Date;
+import java.util.Optional;
 
 import godigital.model.Cargo;
 import godigital.model.Colaborador;
@@ -26,6 +27,21 @@ public class ColaboradorDTO {
         this.dataNascimento = colaborador.getDataNascimento();
         this.dataAdmissao = colaborador.getDataAdmissao();
         this.cpf = formatarCPF(colaborador.getCpf());
+    }
+    
+    public ColaboradorDTO(Optional<Colaborador> colaboradorOpcional) {
+    	if (colaboradorOpcional.isPresent()) {
+    		Colaborador colaborador = colaboradorOpcional.get();
+	
+	        this.id = colaborador.getId();
+	        this.cargo = colaborador.getCargo();
+	        this.cpf = colaborador.getCpf();
+	        this.nome = colaborador.getNome();
+	        this.email = colaborador.getEmail();
+	        this.dataNascimento = colaborador.getDataNascimento();
+	        this.dataAdmissao = colaborador.getDataAdmissao();
+	        this.cpf = formatarCPF(colaborador.getCpf());
+    	}
     }
     
 	public Long getId() {
