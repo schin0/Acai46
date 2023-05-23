@@ -88,7 +88,6 @@ function processarDadosColaborador() {
     }
 
     dados.senha = document.getElementById('senha').value;
-    dados.cargo.id = 2;
     adicionarColaborador(dados);
 }
 
@@ -103,6 +102,7 @@ function editarColaborador(dados) {
         .then(response => response.json())
         .then(async colaborador => {
             await preencherCampos(colaborador);
+            alert('Colaborador editado com sucesso!');
         })
         .catch(error => {
             console.error(error);
@@ -120,6 +120,7 @@ function adicionarColaborador(dados) {
         .then(response => response.json())
         .then(async colaborador => {
             await preencherCampos(colaborador);
+            alert('Colaborador incluído com sucesso!');
         })
         .catch(error => {
             console.error(error);

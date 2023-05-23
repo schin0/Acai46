@@ -19,8 +19,7 @@ function efetuarLogin(usuario, senha) {
                 return;
             }
 
-            // Lógica para lidar com a resposta do servidor após o login
-            console.log("usuário e/ou senha incorreto(s)!");
+            alert('Usuário e/ou senha incorreto(s)!');
         })
         .catch(error => {
             console.error(error);
