@@ -65,7 +65,7 @@ function excluirColaborador(nome, id) {
             .then(response => response.json())
             .then(sucesso => {
                 if (sucesso)
-                    console.log('colaborador excluído com sucesso!');
+                    alert('Colaborador excluído com sucesso!');
 
                 let nome = document.getElementById('nome-colaborador').value;
                 listarColaboradores(nome);
