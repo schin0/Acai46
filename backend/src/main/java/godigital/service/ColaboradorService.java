@@ -62,9 +62,7 @@ public class ColaboradorService {
     	return colaboradorRetorno;
     }
     
-    public ColaboradorDTO adicionarColaborador(Colaborador colaborador) {
-    	colaborador.setId(1L);
-    	
+    public ColaboradorDTO adicionarColaborador(Colaborador colaborador) {    	
     	colaborador.setSenha(loginService.gerarHash(colaborador.getSenha()));;
     	
     	return new ColaboradorDTO(colaboradorRepository.save(colaborador));
