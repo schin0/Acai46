@@ -1,0 +1,61 @@
+-- Colaborador:
+
+CREATE TABLE t_gd_colab (
+    id_colab            NUMBER(10) NOT NULL,
+    t_gd_cargo_id_cargo NUMBER(10) NOT NULL,
+    cpf                 VARCHAR2(11) NOT NULL,
+    nm_colaborador      VARCHAR2(50) NOT NULL,
+    ds_email            VARCHAR2(100) NOT NULL,
+    senha               VARCHAR2(30) NOT NULL,
+    dt_nascimento       DATE,
+    dt_admissao         DATE
+);
+
+-- Cargo:
+
+CREATE TABLE t_gd_cargo (
+    id_cargo NUMBER(10) NOT NULL,
+    ds_cargo VARCHAR2(50) NOT NULL
+);
+
+-- Primary Keys:
+
+ALTER TABLE t_gd_colab ADD CONSTRAINT t_gd_colab_pk PRIMARY KEY ( id_colab );
+
+ALTER TABLE t_gd_cargo ADD CONSTRAINT t_gd_cargo_pk PRIMARY KEY ( id_cargo );
+
+-- Foreign Keys:
+
+ALTER TABLE t_gd_colab
+    ADD CONSTRAINT t_gd_colab_t_gd_cargo_fk FOREIGN KEY ( t_gd_cargo_id_cargo )
+        REFERENCES t_gd_cargo ( id_cargo );
+
+-- Alters por mudança de regras:
+ALTER TABLE t_gd_colab
+
+        
+-- Inserts Cargos:
+INSERT INTO "RM96049"."T_GD_CARGO" (ID_CARGO, DS_CARGO) VALUES ('1', 'Gerente')
+INSERT INTO "RM96049"."T_GD_CARGO" (ID_CARGO, DS_CARGO) VALUES ('2', 'Funcionario')
+
+-- Insert Colaborador:
+INSERT INTO "RM96049"."T_GD_COLAB" (ID_COLAB, T_GD_CARGO_ID_CARGO, CPF, NM_COLABORADOR, DS_EMAIL, SENHA, DT_NASCIMENTO, DT_ADMISSAO) VALUES ('1', '1', '44466655544', 'Gabriel', 'teste@teste.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'))
+
+-- Criar sequencia de autoincremento:
+CREATE SEQUENCE sequencia_1
+    START WITH 1
+    INCREMENT BY 1;
+
+-- Usar trigger com a sequencia de autoincremento:
+CREATE OR REPLACE TRIGGER gatilho_sequencia
+BEFORE INSERT ON t_gd_colab
+FOR EACH ROW
+BEGIN
+    SELECT sequencia_1.NEXTVAL INTO :NEW.id_colab FROM dual;
+END;
+
+-- Alterar primeiro Id após inserção de dados:
+ALTER SEQUENCE sequencia_1 INCREMENT BY 2;
+SELECT sequencia_1.NEXTVAL FROM dual;
+ALTER SEQUENCE sequencia_1 INCREMENT BY 1;
+
