@@ -1,0 +1,158 @@
+#lista {
+    margin: 4vw 1vw;
+}
+
+.topo-tabela {
+    padding: 1.5vw;
+    background-color: var(--roxo);
+    border-radius: 20px 20px 0 0;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+}
+
+.linha-busca{
+    display: flex;
+    justify-content: space-between;
+}
+.topo-busca{
+    padding-bottom: 0px;
+}
+
+.topo-busca h4{
+    color: var(--branco);
+    font-size: medium;
+
+
+}
+
+#titulo h3 {
+    margin: 0;
+    color: var(--branco);
+    font-weight: 500;
+    margin-bottom: 2vw;
+    text-align: center;
+}
+
+.busca {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--branco);
+    border: none;
+    border-radius: 20px;
+    padding: 4px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.busca .material-symbols-outlined {
+    color: #000;
+    font-weight: 600;
+    margin: 0 8px;
+}
+
+.busca input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 14px;
+    color: var(--preto);
+}
+
+.linha button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    background-color: var(--verde);
+    color: var(--branco);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    height: 40px;
+    box-shadow: 0 2px 4px 0 var(--roxo-escuro);
+}
+
+.top-tabela {
+    display: flex;
+    justify-content:space-between ;
+
+}
+
+
+.titulo-tabela{
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--roxo-claro);
+
+}
+
+.linha-top-tb {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px 10px 0px 10px;
+    background-color: #E3E3E3;
+    border-radius: 20px;
+
+
+
+}
+.linha button i {
+    margin-right: 12px;
+}
+
+.tabela {
+    background-color: var(--roxo-claro);
+    padding: 20px 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+td {
+    background-color: var(--branco);
+    color: var(--preto);
+}
+
+.icone-usuario {
+    display: flex;
+    align-items: center;
+}
+
+.icone-usuario .material-icons {
+    margin-right: 4px;
+}
+
+.acoes {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.acoes .material-icons {
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.visualizar {
+    margin-right: 20px;
+}
+
+#btn-adicionar{
+    background-color: #140ac8;
+   
+}
+#lupa-nome {
+    cursor: pointer;
+}
