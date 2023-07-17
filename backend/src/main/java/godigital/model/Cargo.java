@@ -1,16 +1,13 @@
 package godigital.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "t_gd_cargo")
+@Table(name = "T_GD_CARGO")
 public class Cargo {
 
     @Id
-    @Column(name = "ID_CARGO")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "DS_CARGO")

@@ -21,7 +21,7 @@ import godigital.service.ColaboradorService;
 @RequestMapping("/colaboradores")
 public class ColaboradorController {
 
-    private ColaboradorService colaboradorService;
+    private ColaboradorService  colaboradorService;
     
     @Autowired
     public ColaboradorController(ColaboradorService colaboradorService) {

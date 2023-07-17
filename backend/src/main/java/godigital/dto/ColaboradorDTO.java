@@ -83,6 +83,8 @@ public class ColaboradorDTO {
 	public Date getDataAdmissao() {
 		return dataAdmissao;
 	}
+
+
 	public void setDataAdmissao(Date dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
@@ -90,5 +92,19 @@ public class ColaboradorDTO {
 	private String formatarCPF(String cpf) {
         return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
     }
-    
+
+	@Override
+	public String toString() {
+		return "ColaboradorDTO{" +
+				"id=" + id +
+				", cargo=" + cargo +
+				", cpf='" + cpf + '\'' +
+				", nome='" + nome + '\'' +
+				", email='" + email + '\'' +
+				", dataNascimento=" + dataNascimento +
+				", dataAdmissao=" + dataAdmissao +
+				'}';
+	}
+
+
 }
