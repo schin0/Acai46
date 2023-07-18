@@ -39,8 +39,19 @@ public class ProdutoService {
         return produtosDTO;
     }
 
-    public List<Produto> listarProdutoPorCategoria(Long categoriaId){
-      return produtoRepository.findByCategoriaId(categoriaId);
+    public List<Produto> listarProdutoPorNomeECategoria(String nome,Long categoriaId){
+
+        return produtoRepository.findByNomeContainingIgnoreCaseAndCategoriaId(nome, categoriaId);
+
+        /* List<Produto> produtos = (List<Produto>) produtoRepository.findByNomeAndCategoriaId(nome, categoriaId);
+        List<ProdutoDTO> produtosDTO = new ArrayList<>();
+
+        for(Produto produto :produtos){
+            ProdutoDTO produtoDTO =  new ProdutoDTO(produto);
+
+            produtosDTO.add(produtoDTO);
+        }
+      return produtosDTO;*/
     }
 
     public ProdutoDTO obterProduto(Long id){

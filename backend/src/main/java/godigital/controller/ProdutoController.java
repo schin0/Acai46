@@ -52,9 +52,9 @@ public class ProdutoController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("listar-por-categoria/")
-    public List<Produto> listarProdutoPorCategoria(@RequestParam(required = false) Long categoriaId){
-        return produtoService.listarProdutoPorCategoria(categoriaId);
+    @GetMapping("listar-filtro/")
+    public List<Produto> listarProdutoPorNomeECategoria(@RequestParam(required = false)String nome,  Long categoriaId){
+        return produtoService.listarProdutoPorNomeECategoria(nome, categoriaId);
     }
 
 

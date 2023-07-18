@@ -1,9 +1,12 @@
 const pesquisa = document.getElementById('nome-produtos');
 const lupaNome = document.getElementById('lupa-nome');
+const categoria = document.getElementById('categoria');
 
 lupaNome.addEventListener('click', ()=>{
     let nome = document.getElementById('nome-produtos').value;
-    listarProdutos(nome);
+    let categoria = document.getElementById('categoria').value;
+
+    listaProdutoPorNomeECategoria(nome, categoria);
     
 } );
 
@@ -17,15 +20,17 @@ pesquisa.addEventListener('keydown', (e) => {
     }
 });
 
+document.addEventListener('DOMContentLoaded', ()=> {
+    listarProdutos();
+    listarCategoria();
+});
 
-async function prencherCampoCategoria(categoria){
-    const nomeCategoria = document.getElementById('')
-}
 
-function listarProdutos(nome = '') {
+function listaProdutoPorNomeECategoria(nome='', id=''){
+    
     const tabela = document.getElementById('tabela');
-    tabela.innerHTML = `<thead>
-                            <tr>
+    tabela.innerHTML = `
+                            <tr class="header-tabela">
                                 <th>id</th>
                                 <th>produto</th>
                                 <th>descrição</th>
@@ -33,7 +38,36 @@ function listarProdutos(nome = '') {
                                 <th>R$ valor</th>
                                 <th></th>
                             </tr>
-                        </thead>`;
+                        `;
+    fetch(`http://localhost:8080/produtos/listar-filtro/?nome=${nome}&categoriaId=${id}`, {
+        method: 'GET'
+    })
+        .then(response => response.json())
+        .then(retorno => {
+
+            retorno.forEach(produto => {
+                tabela.innerHTML += montarLinhaTabela(produto.nome, produto.id, produto.descricao, produto.categoria.nome, produto.preco);
+            });
+        })
+        .catch(error => {
+            console.error(error);
+            window.alert("fudeu")
+        });
+    
+}
+
+function listarProdutos(nome = '') {
+    const tabela = document.getElementById('tabela');
+    tabela.innerHTML = `
+                            <tr class="header-tabela">
+                                <th>id</th>
+                                <th>produto</th>
+                                <th>descrição</th>
+                                <th>categoria</th>
+                                <th>R$ valor</th>
+                                <th></th>
+                            </tr>
+                        `;
 
     fetch(`http://localhost:8080/produtos?nome=${nome}`, {
         method: 'GET'
@@ -50,13 +84,16 @@ function listarProdutos(nome = '') {
             window.alert("fudeu")
         });
     
-    listarCategoria();
 }
 
 function montarLinhaTabela(nome, id, descricao, categoria, preco) {
-    return `<tbody>
+    
+    if(descricao == null){
+        descricao = '';
+    }
+    return `
                 <tr>
-                    <td class="icone-usuario">
+                    <td class="id-linha">
                      <p>${id}</p>
                     </td>
                     <td class="nome">${nome}</td>
@@ -69,7 +106,7 @@ function montarLinhaTabela(nome, id, descricao, categoria, preco) {
                         <i class="material-icons editar" onclick="processarAcaoProduto('editar', ${id})">edit</i>
                     </td>
                 </tr>
-            </tbody>`;
+           `;
 }
 
 function processarAcaoProduto(acao, id = null) {
@@ -86,7 +123,7 @@ document.getElementById('btn-adicionar').addEventListener('click', () => {
 });
 
 function excluirProduto(nome, id) {
-    const confirmacao = window.confirm(`Deseja mesmo excluir o produto ${nome}?`);
+    const confirmacao = window.confirm(`Deseja mesmo excluir o produto: ${nome}?`);
 
     if (confirmacao) {
         fetch(`http://localhost:8080/produtos/excluir/?id=${id}`, {
@@ -131,4 +168,3 @@ function processarCategoria(categoria) {
     });
 }
 
-listarProdutos();
