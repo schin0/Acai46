@@ -1,0 +1,123 @@
+#dados {
+    background-color: var(--roxo-claro);
+    border-radius: 20px;
+    margin: 2vw 25vw;
+}
+
+#topo-form {
+    background-color: var(--roxo);
+    color: var(--branco);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    border-radius: 20px 20px 0 0;
+    padding: 2vw 0;
+}
+
+#topo-form span {
+    margin-right: 8px;
+}
+
+#topo-form h4 {
+    margin: 0;
+}
+
+#form-colaborador {
+    flex-direction: column;
+    padding: 5vh 0;
+}
+
+#form-colaborador .material-symbols-outlined {
+    color: black;
+}
+
+#form-colaborador .input-group-text {
+    padding: 0 10px;
+}
+
+.form-control,
+.input-group-text {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    outline: 1px solid var(--roxo);
+    outline-offset: 0;
+    box-shadow: none;
+}
+
+.input-group-text {
+    padding: 0 100px;
+}
+
+.form-row {
+    margin-bottom: 1.5vh;
+}
+
+.input-data {
+    position: relative;
+}
+
+.input-data label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+input[type="date"] {
+    border-radius: 0 20px 20px 0 !important;
+}
+
+.input-data input:focus+label,
+.input-data input:not(:placeholder-shown)+label {
+    top: 0;
+    transform: translateY(-50%) scale(0.8);
+    color: var(--roxo-escuro);
+}
+
+.select-cargo select {
+    padding: 6px 12px;
+    border: 1px solid var(--branco);
+    border-radius: 0 20px 20px 0;
+    width: 13vw;
+}
+
+.select-cargo .input-group-prepend {
+    padding: 6px 0;
+}
+
+#select-group {
+    padding: 6px 10px !important;
+}
+
+#btn-cancelar,
+#btn-voltar {
+    background-color: var(--roxo);
+    color: var(--branco);
+}
+
+#btn-cancelar {
+    margin-right: 2vw;
+}
+
+#btn-salvar {
+    background-color: var(--verde);
+    color: var(--branco);
+}
+
+#linha-senha {
+    display: none;
+}
+
+.m-b-0 {
+    margin-bottom: 0;
+}
+
+.b-r-20 {
+    border-radius: 20px;
+}

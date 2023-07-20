@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+:root {
+    --roxo-escuro: #5A19B4;
+    --roxo: #AA6CFF;
+    --roxo-claro: #E2CDFF;
+    --branco: #ffffff;
+    --verde: #58C585;
+    --amarelo: #FCD700;
+    --cinza: #E3E3E3;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar-telas {
+    margin: 1vw;
+    background-color: var(--roxo) !important;
+    padding-left: 2vw;
+}
+
+.navbar-telas a {
+    font-weight: 600;
+}
+
+#section-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70vh;
+}
+
+#div-login {
+    width: 50%;
+    background-color: var(--roxo-claro);
+}
+
+.input-group-text {
+    background-color: var(--branco);
+}
+
+.col-auto input {
+    width: 100%;
+}
+
+.navbar-brand span {
+    margin-right: 10px;
+}
+
+#title-login {
+    background-color: var(--roxo);
+    border-radius: 20px 20px 0 0;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 39px;
+}
+
+.title-login {
+    width: 20%;
+    margin: 3vh 0;
+}
+
+.material-symbols-outlined {
+    font-weight: 500;
+}
+
+#logo-sorvete {
+    font-size: 35px;
+}
+
+#form-login {
+    flex-direction: column;
+    padding: 5vh 0;
+}
+
+#title-login .material-symbols-outlined {
+    font-size: 35px;
+}
+
+#form-login .material-symbols-outlined {
+    color: black;
+}
+
+#form-login .input-group-text {
+    padding: 0 10px;
+}
+
+.form-control,
+.input-group-text {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.form-control:focus {
+    outline: 1px solid var(--roxo);
+    outline-offset: 0;
+    box-shadow: none;
+}
+
+.input-group-text {
+    padding: 0 100px;
+}
+
+.form-row {
+    margin-bottom: 3vh;
+}
+
+#btn-login a {
+    margin-right: 20px;
+    text-decoration-line: underline;
+    color: var(--roxo);
+}
+
+#btn-login #btn-entrar {
+    min-width: 100px;
+    background-color: var(--verde);
+}
+
+/* Estilos gerais: */
+
+.txt-branco {
+    color: var(--branco) !important;
+}
+
+.b-r-20 {
+    border-radius: 20px;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.j-c-center {
+    justify-content: center;
+}
+
+.j-c-space-around {
+    justify-content: space-around;
+}
+
+.j-c-space-between {
+    justify-content: space-between;
+}
+
+.m-b-0 {
+    margin-bottom: 0;
+}
