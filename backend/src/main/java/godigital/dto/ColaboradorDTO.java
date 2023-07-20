@@ -92,18 +92,4 @@ public class ColaboradorDTO {
         return cpf.replaceAll("(\\d{3})(\\d{3})(\\d{3})(\\d{2})", "$1.$2.$3-$4");
     }
 
-	@Override
-	public String toString() {
-		return "ColaboradorDTO{" +
-				"id=" + id +
-				", cargo=" + cargo +
-				", cpf='" + cpf + '\'' +
-				", nome='" + nome + '\'' +
-				", email='" + email + '\'' +
-				", dataNascimento=" + dataNascimento +
-				", dataAdmissao=" + dataAdmissao +
-				'}';
-	}
-
-
 }
