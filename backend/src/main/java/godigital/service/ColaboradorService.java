@@ -48,6 +48,7 @@ public class ColaboradorService {
     	
     	if (colaboradorAtual.isPresent()) {
     		var colaborador = colaboradorAtual.get();
+
     		colaborador.setNome(colaboradorDto.getNome());
     		colaborador.setEmail(colaboradorDto.getEmail());
     		colaborador.setCpf(colaboradorDto.getCpf());
@@ -62,8 +63,6 @@ public class ColaboradorService {
     }
     
     public ColaboradorDTO adicionarColaborador(Colaborador colaborador) {
-    	colaborador.setId(1L);
-    	
     	colaborador.setSenha(loginService.gerarHash(colaborador.getSenha()));;
     	
     	return new ColaboradorDTO(colaboradorRepository.save(colaborador));

@@ -1,15 +1,15 @@
 package godigital.model;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
-@Table(name = "T_GD_COLABORADOR")
+@Table(name = "T_GD_COLAB")
 public class Colaborador {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_COLAB")
     private Long id;
 
     @ManyToOne
@@ -105,7 +105,4 @@ public class Colaborador {
     public void setDataAdmissao(Date dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
     }
-
-
-
 }

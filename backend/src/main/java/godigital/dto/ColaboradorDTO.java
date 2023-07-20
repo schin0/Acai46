@@ -84,7 +84,6 @@ public class ColaboradorDTO {
 		return dataAdmissao;
 	}
 
-
 	public void setDataAdmissao(Date dataAdmissao) {
 		this.dataAdmissao = dataAdmissao;
 	}
