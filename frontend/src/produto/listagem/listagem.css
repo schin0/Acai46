@@ -13,25 +13,25 @@
     justify-content: space-between;
 }
 
-
-.linha-busca{
+.linha-busca {
     display: flex;
     justify-content: space-between;
 }
-.topo-busca{
+
+.topo-busca {
     padding-bottom: 0px;
 }
 
-.topo-busca h4{
+.topo-busca h4 {
     color: var(--branco);
     font-size: medium;
 
 
 }
 
-.form-select{
+.form-select {
     border-radius: 20px;
-    padding:7px;
+    padding: 7px;
 }
 
 #titulo h3 {
@@ -81,7 +81,7 @@
 }
 
 
-.titulo-tabela{
+.titulo-tabela {
     display: flex;
     justify-content: space-between;
     background-color: var(--roxo-claro);
@@ -99,6 +99,7 @@
 
 
 }
+
 .linha button i {
     margin-right: 12px;
 }
@@ -106,7 +107,7 @@
 .tabela {
     background-color: var(--roxo-claro);
     padding: 20px 10px;
-    
+
 }
 
 
@@ -115,13 +116,11 @@ table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 5px
-    
-
-    
 }
 
 tr {
-    margin: 10px;;    
+    margin: 10px;
+    ;
 }
 
 
@@ -137,12 +136,13 @@ td {
     background-color: var(--branco);
     color: var(--preto);
     padding: 2px;
- 
+
 
 }
-.id-linha{
+
+.id-linha {
     border-radius: 20px 0px 0px 20px;
-    text-align:center;
+    text-align: center;
     padding-top: 10px;
     padding-right: 20px;
 }
@@ -157,10 +157,11 @@ td {
 }
 
 
-#btn-adicionar{
+#btn-adicionar {
     background-color: #140ac8;
-   
+
 }
+
 #lupa-nome {
     cursor: pointer;
 }

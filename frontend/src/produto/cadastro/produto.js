@@ -1,20 +1,16 @@
-let acao =  '';
-
+let acao = '';
 
 async function preencherCampos(produto) {
     const nome = document.getElementById('nome-produto');
     const categoria = document.getElementById('categoria');
     const descricao = document.getElementById('descricao');
     const preco = document.getElementById('preco');
-    
+
     nome.value = produto.nome;
     categoria.value = produto.categoria.id;
     descricao.value = produto.descricao;
     preco.value = produto.preco;
-    //categoria.name = `${colaborador.cargo.descricao}-${colaborador.cargo.id}`;
-    
 }
-
 
 function processarDadosProduto() {
     const id = document.getElementById('nome-produto').name;
@@ -42,12 +38,8 @@ function processarDadosProduto() {
         return;
     }
 
-
-    
     adicionarProduto(dados);
 }
-
-
 
 function adicionarProduto(dados) {
     fetch(`http://localhost:8080/produtos/adicionar/`, {
@@ -64,11 +56,7 @@ function adicionarProduto(dados) {
         .catch(error => {
             console.error(error);
         });
-        redirecionarParaListagem();
-
-
-
-    
+    redirecionarParaListagem();
 }
 
 function obterProduto(id) {
@@ -101,7 +89,6 @@ function editarProduto(dados) {
         });
 }
 
-
 function listarCategoria() {
     fetch(`http://localhost:8080/categoria`, {
         method: 'GET'
@@ -114,7 +101,6 @@ function listarCategoria() {
             console.error(error);
         });
 }
-
 
 function processarCategoria(categoria) {
     const select = document.getElementById('categoria');
@@ -130,13 +116,13 @@ function processarCategoria(categoria) {
 document.addEventListener('DOMContentLoaded', () => {
     const url = window.location.search;
     const parametros = new URLSearchParams(url);
-    
+
     processarAcoes(parametros);
-    
+
     listarCategoria()
 
     if (parametros.get('id') != "null")
-    processarDados(parametros);
+        processarDados(parametros);
 
 });
 
@@ -174,8 +160,6 @@ function processarDados(parametros) {
     obterProduto(id);
 }
 
-
-
 function processarVisualizar() {
     const btnSalvar = document.getElementById('btn-salvar');
     const btnCancelar = document.getElementById('btn-cancelar');
@@ -186,7 +170,6 @@ function processarVisualizar() {
 
 function processarAdicionar() {
     processarAcaoPadrao();
-
 }
 
 function processarAcaoPadrao() {
@@ -205,10 +188,8 @@ document.getElementById('btn-cancelar').addEventListener('click', () => {
 
 document.getElementById('btn-salvar').addEventListener('click', () => {
     processarDadosProduto();
-
 });
 
 function redirecionarParaListagem() {
-    window.location.href = '../listar-produto/lista-produto.html';
+    window.location.href = '../listagem/listagem.html';
 }
-

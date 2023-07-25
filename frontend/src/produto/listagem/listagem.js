@@ -2,32 +2,29 @@ const pesquisa = document.getElementById('nome-produtos');
 const lupaNome = document.getElementById('lupa-nome');
 const categoria = document.getElementById('categoria');
 
-lupaNome.addEventListener('click', ()=>{
+lupaNome.addEventListener('click', () => {
     let nome = document.getElementById('nome-produtos').value;
     let categoria = document.getElementById('categoria').value;
 
     listaProdutoPorNomeECategoria(nome, categoria);
-    
-} );
+});
 
 pesquisa.addEventListener('keydown', (e) => {
-    if (e.keyCode === 13 ) {
+    if (e.keyCode === 13) {
         e.preventDefault();
 
         let nome = document.getElementById('nome-produtos').value;
         listarProdutos(nome);
-        
     }
 });
 
-document.addEventListener('DOMContentLoaded', ()=> {
+document.addEventListener('DOMContentLoaded', () => {
     listarProdutos();
     listarCategoria();
 });
 
+function listaProdutoPorNomeECategoria(nome = '', id = '') {
 
-function listaProdutoPorNomeECategoria(nome='', id=''){
-    
     const tabela = document.getElementById('tabela');
     tabela.innerHTML = `
                             <tr class="header-tabela">
@@ -53,7 +50,6 @@ function listaProdutoPorNomeECategoria(nome='', id=''){
             console.error(error);
             window.alert("fudeu")
         });
-    
 }
 
 function listarProdutos(nome = '') {
@@ -83,14 +79,13 @@ function listarProdutos(nome = '') {
             console.error(error);
             window.alert("fudeu")
         });
-    
+
 }
 
 function montarLinhaTabela(nome, id, descricao, categoria, preco) {
-    
-    if(descricao == null){
+    if (descricao == null)
         descricao = '';
-    }
+
     return `
                 <tr>
                     <td class="id-linha">
@@ -114,7 +109,7 @@ function processarAcaoProduto(acao, id = null) {
     url.set('acao', acao);
     url.set('id', id);
 
-    const paginaProduto = `../crud-produto/produto.html?${url.toString()}`;
+    const paginaProduto = `../cadastro/produto.html?${url.toString()}`;
     window.location.href = paginaProduto;
 }
 
@@ -156,7 +151,6 @@ function listarCategoria() {
         });
 }
 
-
 function processarCategoria(categoria) {
     const select = document.getElementById('categoria');
 
@@ -167,4 +161,3 @@ function processarCategoria(categoria) {
         select.appendChild(opcao);
     });
 }
-
