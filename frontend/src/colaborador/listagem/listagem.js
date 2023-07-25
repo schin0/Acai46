@@ -47,7 +47,7 @@ function processarAcaoColaborador(acao, id = null) {
     url.set('acao', acao);
     url.set('id', id);
 
-    const paginaColaborador = `../colaborador/colaborador.html?${url.toString()}`;
+    const paginaColaborador = `../cadastro/colaborador.html?${url.toString()}`;
     window.location.href = paginaColaborador;
 }
 

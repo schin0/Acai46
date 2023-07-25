@@ -15,7 +15,7 @@ function efetuarLogin(usuario, senha) {
         .then(response => response.json())
         .then(sucesso => {
             if (sucesso) {
-                window.location.href = 'home/home.html';
+                window.location.href = 'colaborador/listagem/listagem.html';
                 return;
             }
 

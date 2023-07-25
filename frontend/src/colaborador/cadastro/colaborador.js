@@ -136,7 +136,7 @@ document.getElementById('btn-cancelar').addEventListener('click', () => {
 });
 
 function redirecionarParaHome() {
-    window.location.href = '../home/home.html';
+    window.location.href = '../listagem/listagem.html';
 }
 
 document.addEventListener('DOMContentLoaded', () => {
