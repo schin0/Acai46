@@ -13,8 +13,15 @@ function efetuarLogin(usuario, senha) {
         body: JSON.stringify(dados)
     })
         .then(response => response.json())
-        .then(sucesso => {
-            if (sucesso) {
+        .then(retorno => {
+            if (retorno.acessoLiberado) {
+                let dadosUsuario = {
+                    usuario,
+                    usuarioCargoId: retorno.usuarioCargoId
+                };
+
+                localStorage.setItem('usuario', JSON.stringify(dadosUsuario));
+
                 window.location.href = 'colaborador/listagem/listagem.html';
                 return;
             }

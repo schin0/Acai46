@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import godigital.dto.LoginDTO;
 import godigital.request.LoginRequest;
 import godigital.service.LoginService;
 
@@ -23,7 +24,7 @@ public class LoginController {
 	
 	@CrossOrigin(origins = "*")
     @PostMapping()
-    public boolean login(@RequestBody LoginRequest loginRequest) {
-    	return loginService.login(loginRequest);
-    }	
+    public LoginDTO login(@RequestBody LoginRequest loginRequest) {
+		return loginService.login(loginRequest);
+    }
 }
