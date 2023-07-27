@@ -31,7 +31,7 @@ CREATE TABLE t_gd_produto (
     
     id_produto NUMBER(10) CONSTRAINT t_gd_produto_pk PRIMARY KEY,
     nm_produto VARCHAR2(50) NOT NULL,
-    id_categoria NUMBER(10) CONSTRAINT t_gd_produto_t_gd_categoria_fk REFERENCES t_gd_categoria (id_categoria),
+    t_gd_categoria_id_categoria NUMBER(10) CONSTRAINT t_gd_produto_t_gd_categoria_fk REFERENCES t_gd_categoria (id_categoria),
     ds_produto VARCHAR2(100) NOT NULL,
     preco NUMBER(10,2) NOT NULL
 )
@@ -55,6 +55,13 @@ ALTER TABLE t_gd_colab
 INSERT INTO "T_GD_CARGO" (ID_CARGO, DS_CARGO) VALUES ('1', 'Gerente')
 INSERT INTO "T_GD_CARGO" (ID_CARGO, DS_CARGO) VALUES ('2', 'Funcionario')
 
+--Inserts Categoria:
+INSERT INTO t_gd_categoria VALUES('1', 'Lanches')
+INSERT INTO t_gd_categoria VALUES('2', 'Porções')
+INSERT INTO t_gd_categoria VALUES('3', 'Bebidas')
+
+
+
 -- Insert Colaborador:
 INSERT INTO "T_GD_COLAB" (ID_COLAB, T_GD_CARGO_ID_CARGO, CPF, NM_COLABORADOR, DS_EMAIL, SENHA, DT_NASCIMENTO, DT_ADMISSAO) VALUES ('1', '1', '44466655544', 'Gabriel', 'teste@teste.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'))
 
@@ -75,4 +82,5 @@ END;
 ALTER SEQUENCE sequencia_1 INCREMENT BY 2;
 SELECT sequencia_1.NEXTVAL FROM dual;
 ALTER SEQUENCE sequencia_1 INCREMENT BY 1;
+
 
