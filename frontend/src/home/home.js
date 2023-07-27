@@ -29,24 +29,30 @@ async function listarModulosGerente() {
 
     const divsGerente = `
         <div class="modulo">
-            <img src="https://via.placeholder.com/80x80" />
-            <p>CADASTRAR COLABORADORES</p>
+            <a href="../colaborador/listagem/listagem.html">
+                <img src="https://via.placeholder.com/80x80" />
+                <p>CADASTRAR COLABORADORES</p>
+            </a>
         </div>
         <div class="modulo">
             <img src="https://via.placeholder.com/80x80" />
             <p>RELATÓRIOS</p>
         </div>
         <div class="modulo">
-            <img src="https://via.placeholder.com/80x80" />
-            <p>CADASTRAR PRODUTOS</p>
+            <a href="../produto/listagem/listagem.html">
+                <img src="https://via.placeholder.com/80x80" />
+                <p>CADASTRAR PRODUTOS</p>
+            </a>
         </div>
         <div class="modulo">
             <img src="https://via.placeholder.com/80x80" />
             <p>EDITAR ESTOQUE</p>
         </div>
         <div class="modulo">
-            <img src="https://via.placeholder.com/80x80" />
-            <p>DADOS DOS COLABORADORES</p>
+            <a href="../colaborador/listagem/listagem.html">
+                <img src="https://via.placeholder.com/80x80" />
+                <p>DADOS DOS COLABORADORES</p>
+            </a>
         </div>
         <div class="modulo">
             <img src="https://via.placeholder.com/80x80" />
@@ -66,8 +72,10 @@ async function listarModulosFuncionario() {
 
     const divsFuncionario = `
         <div class="modulo">
-            <img src="https://via.placeholder.com/80x80" />
-            <p>PRODUTOS</p>
+            <a href="../produto/listagem/listagem.html">
+                <img src="https://via.placeholder.com/80x80" />
+                <p>PRODUTOS</p>
+            </a>
         </div>
         <div class="modulo">
             <img src="https://via.placeholder.com/80x80" />
