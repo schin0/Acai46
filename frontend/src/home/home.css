@@ -15,6 +15,15 @@
     justify-content: space-around;
 }
 
+#conjunto-modulos {
+    flex: 60%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-content: center;
+    justify-content: space-around;
+}
+
 .moldura-menu {
     background-color: var(--roxo-claro);
     margin: 1vw;

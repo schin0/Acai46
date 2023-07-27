@@ -22,7 +22,7 @@ function efetuarLogin(usuario, senha) {
 
                 localStorage.setItem('usuario', JSON.stringify(dadosUsuario));
 
-                window.location.href = 'colaborador/listagem/listagem.html';
+                window.location.href = 'home/home.html';
                 return;
             }
 
