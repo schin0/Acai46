@@ -6,24 +6,27 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "T_GD_PRODUTO")
+@Table(name = "t_gd_produto")
+@SequenceGenerator(name = "sequencia_1", sequenceName = "sequencia_1", allocationSize = 1)
+
 public class Produto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "sequencia_1" )
+    @Column(name = "id_produto")
     private Long id;
 
-    @Column(name = "NM_PRODUTO")
+    @Column(name = "nm_produto")
     private String nome;
 
     @ManyToOne
     @JoinColumn(name = "t_gd_categoria_id_categoria")
     private Categoria categoria;
 
-    @Column(name = "DESCRICAO")
+    @Column(name = "ds_produto")
     private String descricao;
 
-    @Column(name = "VL_PRECO")
+    @Column(name = "preco")
     private BigDecimal preco;
 
     public Produto(){};
