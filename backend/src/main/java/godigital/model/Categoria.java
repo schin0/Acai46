@@ -8,6 +8,8 @@ public class Categoria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_CATEGORIA")
+
     private Long id;
 
     @Column(name = "nm_categoria")
