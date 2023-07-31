@@ -60,6 +60,7 @@ p.colaborador {
 }
 
 img {
+    width: 64px;
     margin: 1vw;
 }
 
@@ -70,4 +71,8 @@ img {
 
 .moldura-dados-menu p {
     font-size: 18px;
+}
+
+.desabilitado {
+    opacity: 0.5;
 }
