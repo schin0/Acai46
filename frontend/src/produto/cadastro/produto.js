@@ -7,6 +7,7 @@ async function preencherCampos(produto) {
     const preco = document.getElementById('preco');
 
     nome.value = produto.nome;
+    nome.name = produto.id;
     categoria.value = produto.categoria.id;
     descricao.value = produto.descricao;
     preco.value = produto.preco;
@@ -119,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     processarAcoes(parametros);
 
-    listarCategoria()
+    listarCategoria();
 
     if (parametros.get('id') != "null")
         processarDados(parametros);
