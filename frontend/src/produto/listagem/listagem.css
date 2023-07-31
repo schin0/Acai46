@@ -158,8 +158,7 @@ td {
 
 
 #btn-adicionar {
-    background-color: #140ac8;
-
+    background-color: var(--roxo-escuro);
 }
 
 #lupa-nome {

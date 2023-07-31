@@ -14,6 +14,8 @@ async function processarDadosUsuario() {
     }
 
     await listarModulosFuncionario();
+    
+    preencherUsuario(dadosUsuario);
 }
 
 function obterDadosUsuario() {
@@ -22,6 +24,15 @@ function obterDadosUsuario() {
 
 function verificarPermissaoGerente(usuarioCargoId) {
     return cargoEnum.gerente == usuarioCargoId;
+}
+
+function preencherUsuario(dadosUsuario) {
+    document.getElementById('nome-colaborador').textContent  = dadosUsuario.usuario;
+    document.getElementById('cargo-colaborador').textContent  = obterTextoCargo(dadosUsuario.usuarioCargoId);
+}
+
+function obterTextoCargo(usuarioCargoId) {
+    return usuarioCargoId == cargoEnum.funcionario ? "Funcionário" : "Gerente";
 }
 
 async function listarModulosGerente() {
