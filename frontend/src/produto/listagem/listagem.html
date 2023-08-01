@@ -33,42 +33,33 @@
 
     <main>
         <section id="lista">
-            <div class="topo-tabela">
-                <div id="titulo">
-                    <h3>Produto</h3>
-                </div>
-                <div class="linha">
-                    <div class="linha-busca">
-                        <div class="box-busca">
-                            <div class="topo-busca">
-                                <h4>pesquisa produtos:</h4>
-                            </div>
-                            <div class="busca">
-                                <input type="text" id="nome-produtos">
-                                <span class="material-symbols-outlined" id="lupa-nome">search</span>
-                            </div>
+            <section id="lista">
+                <div class="topo-tabela">
+                    <div class="linha">
+                        <h3>Produtos</h3>
+                    </div>
+
+                    <div class="linha">
+                        <div class="busca">
+                            <span class="material-symbols-outlined" id="lupa-nome">search</span>
+                            <input type="text" placeholder="Pesquisar por nome" id="nome-produtos">
                         </div>
-                        <div class="box-busca">
-                            <div class="topo-busca">
-                                <h4>filtrar por categoria:</h4>
-                            </div>
-                            <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example"
+                        <div class="busca">
+                            <span class="material-symbols-outlined" id="lupa-categoria">search</span>
+                            <select class="form-select form-select-lg" aria-label=".form-select-lg example"
                                 id="categoria">
                                 <option selected>Escolha a categoria</option>
-
                             </select>
                         </div>
+                        <button type="button" class="btn b-r-20" id="btn-adicionar">
+                            <i class="material-icons">add_circle</i>Adicionar produto
+                        </button>
                     </div>
-                    <button type="button" class="btn b-r-20" id="btn-adicionar">
-                        <i class="material-icons">add_circle</i> Adicionar Produto
-                    </button>
                 </div>
-
-            </div>
-
-            <div class="tabela">
-                <table id="tabela"></table>
-            </div>
+                <div class="tabela">
+                    <table id="tabela"></table>
+                </div>
+            </section>
         </section>
     </main>
 

@@ -8,36 +8,26 @@
     border-radius: 20px 20px 0 0;
 }
 
+#categoria {
+    font-size: 14px;
+    padding: 6px 12px;
+    border: 1px solid var(--branco);
+}
+
+#categoria:focus {
+    outline: none;
+}
+
 .linha {
     display: flex;
     justify-content: space-between;
 }
 
-.linha-busca {
-    display: flex;
-    justify-content: space-between;
-}
-
-.topo-busca {
-    padding-bottom: 0px;
-}
-
-.topo-busca h4 {
-    color: var(--branco);
-    font-size: medium;
-}
-
-.form-select {
-    border-radius: 20px;
-    padding: 7px;
-}
-
-#titulo h3 {
+.linha h3 {
     margin: 0;
     color: var(--branco);
-    font-weight: 500;
-    margin-bottom: 2vw;
-    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1vw;
 }
 
 .busca {
@@ -47,7 +37,7 @@
     border: none;
     border-radius: 20px;
     padding: 4px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px 0 #0000001a;
 }
 
 .busca .material-symbols-outlined {
@@ -78,23 +68,19 @@
     box-shadow: 0 2px 4px 0 var(--roxo-escuro);
 }
 
+.linha button i {
+    margin-right: 12px;
+}
+
+.form-select {
+    border-radius: 20px;
+    padding: 7px;
+}
+
 .titulo-tabela {
     display: flex;
     justify-content: space-between;
     background-color: var(--roxo-claro);
-}
-
-.linha-top-tb {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0px 10px 0px 10px;
-    background-color: #E3E3E3;
-    border-radius: 20px;
-}
-
-.linha button i {
-    margin-right: 12px;
 }
 
 .tabela {
@@ -125,28 +111,28 @@ td {
     background-color: var(--branco);
     color: var(--preto);
     padding: 2px;
+    width: 20%;
 }
 
-.id-linha {
+.esqueda {
     border-radius: 20px 0px 0px 20px;
-    text-align: center;
-    padding-top: 10px;
-    padding-right: 20px;
+    padding-left: 10px;
 }
 
 .acoes {
     border-radius: 0px 20px 20px 0px;
+    width: 10%;
+    text-align: end;
+    padding-right: 10px;
 }
 
 .acoes .material-icons {
     cursor: pointer;
     margin-left: 15px;
+    height: 100%;
+    padding-top: 5px;
 }
 
-#btn-adicionar {
-    background-color: var(--roxo-escuro);
-}
-
-#lupa-nome {
+#lupa-nome, #lupa-categoria {
     cursor: pointer;
 }

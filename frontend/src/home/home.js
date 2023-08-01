@@ -10,11 +10,12 @@ async function processarDadosUsuario() {
 
     if (verificarPermissaoGerente(usuarioCargoId)) {
         await listarModulosGerente();
+        preencherUsuario(dadosUsuario);
+
         return;
     }
 
     await listarModulosFuncionario();
-    
     preencherUsuario(dadosUsuario);
 }
 

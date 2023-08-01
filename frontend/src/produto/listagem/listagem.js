@@ -1,8 +1,16 @@
 const pesquisa = document.getElementById('nome-produtos');
+const lupaCategoria = document.getElementById('lupa-categoria');
 const lupaNome = document.getElementById('lupa-nome');
 const categoria = document.getElementById('categoria');
 
 lupaNome.addEventListener('click', () => {
+    let nome = document.getElementById('nome-produtos').value;
+    let categoria = document.getElementById('categoria').value;
+
+    listaProdutoPorNomeECategoria(nome, categoria);
+});
+
+lupaCategoria.addEventListener('click', () => {
     let nome = document.getElementById('nome-produtos').value;
     let categoria = document.getElementById('categoria').value;
 
@@ -28,12 +36,10 @@ function listaProdutoPorNomeECategoria(nome = '', id = '') {
     const tabela = document.getElementById('tabela');
     tabela.innerHTML = `
                             <tr class="header-tabela">
-                                <th>id</th>
-                                <th>produto</th>
-                                <th>descrição</th>
-                                <th>categoria</th>
-                                <th>R$ valor</th>
-                                <th></th>
+                                <th>NOME</th>
+                                <th>DESCRIÇÃO</th>
+                                <th>CATEGORIA</th>
+                                <th>VALOR UNITÁRIO (R$)</th>
                             </tr>
                         `;
     fetch(`http://localhost:8080/produtos/listar-filtro/?nome=${nome}&categoriaId=${id}`, {
@@ -48,7 +54,6 @@ function listaProdutoPorNomeECategoria(nome = '', id = '') {
         })
         .catch(error => {
             console.error(error);
-            window.alert("fudeu")
         });
 }
 
@@ -56,12 +61,10 @@ function listarProdutos(nome = '') {
     const tabela = document.getElementById('tabela');
     tabela.innerHTML = `
                             <tr class="header-tabela">
-                                <th>id</th>
-                                <th>produto</th>
-                                <th>descrição</th>
-                                <th>categoria</th>
-                                <th>R$ valor</th>
-                                <th></th>
+                                <th>NOME</th>
+                                <th>DESCRIÇÃO</th>
+                                <th>CATEGORIA</th>
+                                <th>VALOR UNITÁRIO (R$)</th>
                             </tr>
                         `;
 
@@ -77,7 +80,6 @@ function listarProdutos(nome = '') {
         })
         .catch(error => {
             console.error(error);
-            window.alert("fudeu")
         });
 
 }
@@ -88,10 +90,7 @@ function montarLinhaTabela(nome, id, descricao, categoria, preco) {
 
     return `
                 <tr>
-                    <td class="id-linha">
-                     <p>${id}</p>
-                    </td>
-                    <td class="nome">${nome}</td>
+                    <td class="esqueda">${nome}</td>
                     <td class="descricao">${descricao}</td>
                     <td class="categoria">${categoria}</td>
                     <td class="valor">R$ ${preco}</td>
@@ -118,7 +117,7 @@ document.getElementById('btn-adicionar').addEventListener('click', () => {
 });
 
 function excluirProduto(nome, id) {
-    const confirmacao = window.confirm(`Deseja mesmo excluir o produto: ${nome}?`);
+    const confirmacao = window.confirm(`Deseja excluir o produto ${nome}?`);
 
     if (confirmacao) {
         fetch(`http://localhost:8080/produtos/excluir/?id=${id}`, {
@@ -127,7 +126,7 @@ function excluirProduto(nome, id) {
             .then(response => response.json())
             .then(sucesso => {
                 if (sucesso)
-                    console.log('produto excluído com sucesso!');
+                    alert('Produto excluído com sucesso!');
 
                 let nome = document.getElementById('nome-produtos').value;
                 listarProdutos(nome);
