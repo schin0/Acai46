@@ -28,7 +28,7 @@ public class ProdutoDTO {
             this.id = produto.getId();
             this.nome = produto.getNome();
             this.categoria = produto.getCategoria();
-            this.descricao = produto.getNome();
+            this.descricao = produto.getDescricao();
             this.preco = produto.getPreco();
         }
     }

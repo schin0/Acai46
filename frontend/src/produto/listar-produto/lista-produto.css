@@ -115,13 +115,16 @@ table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0 5px
-    
 
     
 }
 
+.box-busca{
+    margin-left: 8px;
+}
+
 tr {
-    margin: 10px;;    
+    margin: 10px;    
 }
 
 

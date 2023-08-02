@@ -1,6 +1,7 @@
 const pesquisa = document.getElementById('nome-produtos');
 const lupaNome = document.getElementById('lupa-nome');
 const categoria = document.getElementById('categoria');
+const adicionar = document.getElementById('btn-adicionar');
 
 lupaNome.addEventListener('click', ()=>{
     let nome = document.getElementById('nome-produtos').value;
@@ -19,6 +20,11 @@ pesquisa.addEventListener('keydown', (e) => {
         
     }
 });
+
+adicionar.addEventListener('click', ()=> {
+
+    processarAcaoProduto('adicionar');
+})
 
 document.addEventListener('DOMContentLoaded', ()=> {
     listarProdutos();
