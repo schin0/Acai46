@@ -70,7 +70,7 @@ async function listarModulosGerente() {
             <img src="../../assets/img/fornecedores.png" class="desabilitado"/>
             <p class="desabilitado">CADASTRAR FORNECEDORES</p>
         </div>
-        <div class="modulo">
+        <div class="modulo-caixa">
             <img src="../../assets/img/caixa.png" class="desabilitado"/>
             <p class="desabilitado">CAIXA</p>
         </div>
@@ -97,7 +97,7 @@ async function listarModulosFuncionario() {
             <img src="../../assets/img/vendas.png" class="desabilitado"/>
             <p class="desabilitado">VENDAS</p>
         </div>
-        <div class="modulo">
+        <div class="modulo-caixa">
             <img src="../../assets/img/caixa.png" class="desabilitado" />
             <p class="desabilitado">CAIXA</p>
         </div>
