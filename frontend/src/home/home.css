@@ -44,12 +44,13 @@ p.colaborador {
 }
 
 .modulo {
+    flex: 0 0 calc(30% - 4vw);
     box-sizing: 50px;
     background-color: var(--roxo-claro);
     border-radius: 20px;
     padding: 2vw;
     width: 30%;
-    height: 30%;
+    min-height: 30%;
     margin: 2vw;
     text-align: center;
 }

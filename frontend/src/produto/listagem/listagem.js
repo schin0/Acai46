@@ -47,7 +47,6 @@ function listaProdutoPorNomeECategoria(nome = '', id = '') {
     })
         .then(response => response.json())
         .then(retorno => {
-
             retorno.forEach(produto => {
                 tabela.innerHTML += montarLinhaTabela(produto.nome, produto.id, produto.descricao, produto.categoria.nome, produto.preco);
             });
