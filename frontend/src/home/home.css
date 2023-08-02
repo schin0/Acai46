@@ -43,7 +43,7 @@ p.colaborador {
     padding: 1vw;
 }
 
-.modulo {
+.modulo, .modulo-caixa {
     flex: 0 0 calc(30% - 4vw);
     box-sizing: 50px;
     background-color: var(--roxo-claro);
@@ -55,9 +55,8 @@ p.colaborador {
     text-align: center;
 }
 
-.caixa {
+.modulo-caixa {
     background-color: #fddd4a;
-    font-weight: bold;
 }
 
 img {
