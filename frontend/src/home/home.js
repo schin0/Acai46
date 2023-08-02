@@ -1,79 +1,109 @@
-const pesquisa = document.getElementById('nome-colaborador');
+const cargoEnum = {
+    gerente: 1,
+    funcionario: 2
+}
 
-pesquisa.addEventListener('keydown', (e) => {
-    if (e.keyCode === 13) {
-        e.preventDefault();
+async function processarDadosUsuario() {
+    let dadosUsuario = obterDadosUsuario();
 
-        let nome = document.getElementById('nome-colaborador').value;
-        listarColaboradores(nome);
+    let usuarioCargoId = dadosUsuario.usuarioCargoId;
+
+    if (verificarPermissaoGerente(usuarioCargoId)) {
+        await listarModulosGerente();
+        preencherUsuario(dadosUsuario);
+
+        return;
     }
-});
 
-function listarColaboradores(nome = '') {
-    const tabela = document.getElementById('tabela');
-    tabela.innerHTML = '';
-
-    fetch(`http://localhost:8080/colaboradores?nome=${nome}`, {
-        method: 'GET'
-    })
-        .then(response => response.json())
-        .then(retorno => {
-
-            retorno.forEach(colaborador => {
-                tabela.innerHTML += montarLinhaTabela(colaborador.nome, colaborador.id);
-            });
-        })
-        .catch(error => {
-            console.error(error);
-        });
+    await listarModulosFuncionario();
+    preencherUsuario(dadosUsuario);
 }
 
-function montarLinhaTabela(nome, id) {
-    return `<tr>
-                <td class="icone-usuario">
-                    <i class="material-icons">person</i>
-                </td>
-                <td class="nome">${nome}</td>
-                <td class="acoes">
-                    <i class="material-icons excluir" onclick="excluirColaborador('${nome}', ${id})">delete</i>
-                    <i class="material-icons editar" onclick="processarAcaoColaborador('editar', ${id})">edit</i>
-                    <i class="material-icons visualizar" onclick="processarAcaoColaborador('visualizar', ${id})">visibility</i>
-                </td>
-            </tr>`;
+function obterDadosUsuario() {
+    return JSON.parse(localStorage.getItem('usuario'));
 }
 
-function processarAcaoColaborador(acao, id = null) {
-    const url = new URLSearchParams();
-    url.set('acao', acao);
-    url.set('id', id);
-
-    const paginaColaborador = `../colaborador/colaborador.html?${url.toString()}`;
-    window.location.href = paginaColaborador;
+function verificarPermissaoGerente(usuarioCargoId) {
+    return cargoEnum.gerente == usuarioCargoId;
 }
 
-document.getElementById('btn-adicionar').addEventListener('click', () => {
-    processarAcaoColaborador('adicionar');
-});
-
-function excluirColaborador(nome, id) {
-    const confirmacao = window.confirm(`Deseja mesmo excluir o colaborador ${nome}?`);
-
-    if (confirmacao) {
-        fetch(`http://localhost:8080/colaboradores/excluir/?id=${id}`, {
-            method: 'DELETE'
-        })
-            .then(response => response.json())
-            .then(sucesso => {
-                if (sucesso)
-                    alert('Colaborador excluído com sucesso!');
-
-                let nome = document.getElementById('nome-colaborador').value;
-                listarColaboradores(nome);
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
+function preencherUsuario(dadosUsuario) {
+    document.getElementById('nome-colaborador').textContent  = dadosUsuario.usuario;
+    document.getElementById('cargo-colaborador').textContent  = obterTextoCargo(dadosUsuario.usuarioCargoId);
 }
 
-listarColaboradores();
+function obterTextoCargo(usuarioCargoId) {
+    return usuarioCargoId == cargoEnum.funcionario ? "Funcionário" : "Gerente";
+}
+
+async function listarModulosGerente() {
+    const div = document.getElementById('conjunto-modulos');
+
+    const divsGerente = `
+        <div class="modulo">
+            <a href="../colaborador/listagem/listagem.html">
+                <img src="../../assets/img/cadastro-colaborador.png" />
+                <p>CADASTRAR COLABORADORES</p>
+            </a>
+        </div>
+        <div class="modulo">
+            <img src="../../assets/img/relatorios.png" class="desabilitado" />
+            <p class="desabilitado">RELATÓRIOS</p>
+        </div>
+        <div class="modulo">
+            <a href="../produto/listagem/listagem.html">
+                <img src="../../assets/img/produtos.png" />
+                <p>CADASTRAR PRODUTOS</p>
+            </a>
+        </div>
+        <div class="modulo">
+            <img src="../../assets/img/estoque.png" class="desabilitado"/>
+            <p class="desabilitado">EDITAR ESTOQUE</p>
+        </div>
+        <div class="modulo">
+            <a href="../colaborador/listagem/listagem.html">
+                <img src="../../assets/img/colaboradores.png" />
+                <p>DADOS DOS COLABORADORES</p>
+            </a>
+        </div>
+        <div class="modulo">
+            <img src="../../assets/img/fornecedores.png" class="desabilitado"/>
+            <p class="desabilitado">CADASTRAR FORNECEDORES</p>
+        </div>
+        <div class="modulo">
+            <img src="../../assets/img/caixa.png" class="desabilitado"/>
+            <p class="desabilitado">CAIXA</p>
+        </div>
+    `;
+
+    div.innerHTML = divsGerente;
+}
+
+async function listarModulosFuncionario() {
+    const div = document.getElementById('conjunto-modulos');
+
+    const divsFuncionario = `
+        <div class="modulo">
+            <a href="../produto/listagem/listagem.html">
+                <img src="../../assets/img/produtos.png" />
+                <p>PRODUTOS</p>
+            </a>
+        </div>
+        <div class="modulo">
+            <img src="../../assets/img/relatorios.png" class="desabilitado" />
+            <p class="desabilitado">RELATÓRIOS</p>
+        </div>
+        <div class="modulo">
+            <img src="../../assets/img/vendas.png" class="desabilitado"/>
+            <p class="desabilitado">VENDAS</p>
+        </div>
+        <div class="modulo">
+            <img src="../../assets/img/caixa.png" class="desabilitado" />
+            <p class="desabilitado">CAIXA</p>
+        </div>
+    `;
+
+    div.innerHTML = divsFuncionario;
+}
+
+processarDadosUsuario();

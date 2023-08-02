@@ -13,33 +13,11 @@
     justify-content: space-between;
 }
 
-
-.linha-busca{
-    display: flex;
-    justify-content: space-between;
-}
-.topo-busca{
-    padding-bottom: 0px;
-}
-
-.topo-busca h4{
-    color: var(--branco);
-    font-size: medium;
-
-
-}
-
-.form-select{
-    border-radius: 20px;
-    padding:7px;
-}
-
-#titulo h3 {
+.linha h3 {
     margin: 0;
     color: var(--branco);
-    font-weight: 500;
-    margin-bottom: 2vw;
-    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1vw;
 }
 
 .busca {
@@ -49,7 +27,7 @@
     border: none;
     border-radius: 20px;
     padding: 4px;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px 0 #0000001a;
 }
 
 .busca .material-symbols-outlined {
@@ -80,25 +58,6 @@
     box-shadow: 0 2px 4px 0 var(--roxo-escuro);
 }
 
-
-.titulo-tabela{
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--roxo-claro);
-
-}
-
-.linha-top-tb {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 0px 10px 0px 10px;
-    background-color: #E3E3E3;
-    border-radius: 20px;
-
-
-
-}
 .linha button i {
     margin-right: 12px;
 }
@@ -106,49 +65,37 @@
 .tabela {
     background-color: var(--roxo-claro);
     padding: 20px 10px;
-    
 }
-
 
 table {
     border-collapse: collapse;
     width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 5px
-    
-
-    
 }
 
-tr {
-    margin: 10px;;    
-}
-
-
-tr,
+th,
 td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
 
-
 td {
     background-color: var(--branco);
     color: var(--preto);
-    padding: 2px;
- 
-
 }
-.id-linha{
-    border-radius: 20px 0px 0px 20px;
-    text-align:center;
-    padding-top: 10px;
-    padding-right: 20px;
+
+.icone-usuario {
+    display: flex;
+    align-items: center;
+}
+
+.icone-usuario .material-icons {
+    margin-right: 4px;
 }
 
 .acoes {
-    border-radius: 0px 20px 20px 0px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .acoes .material-icons {
@@ -156,11 +103,6 @@ td {
     margin-left: 15px;
 }
 
-
-#btn-adicionar{
-    background-color: #140ac8;
-   
-}
-#lupa-nome {
-    cursor: pointer;
+.visualizar {
+    margin-right: 20px;
 }

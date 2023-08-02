@@ -12,6 +12,13 @@ public class Cargo {
 
     @Column(name = "DS_CARGO")
     private String descricao;
+    
+    public Cargo(){};
+    
+    public Cargo(String descricao, Long id){
+    	this.id = id;
+    	this.descricao = descricao;
+    };
 
     public Long getId() {
         return id;

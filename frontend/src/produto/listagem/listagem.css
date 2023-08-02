@@ -1,0 +1,138 @@
+#lista {
+    margin: 4vw 1vw;
+}
+
+.topo-tabela {
+    padding: 1.5vw;
+    background-color: var(--roxo);
+    border-radius: 20px 20px 0 0;
+}
+
+#categoria {
+    font-size: 14px;
+    padding: 6px 12px;
+    border: 1px solid var(--branco);
+}
+
+#categoria:focus {
+    outline: none;
+}
+
+.linha {
+    display: flex;
+    justify-content: space-between;
+}
+
+.linha h3 {
+    margin: 0;
+    color: var(--branco);
+    font-weight: 600;
+    margin-bottom: 1vw;
+}
+
+.busca {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--branco);
+    border: none;
+    border-radius: 20px;
+    padding: 4px;
+    box-shadow: 0 2px 4px 0 #0000001a;
+}
+
+.busca .material-symbols-outlined {
+    color: #000;
+    font-weight: 600;
+    margin: 0 8px;
+}
+
+.busca input {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: 14px;
+    color: var(--preto);
+}
+
+.linha button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    background-color: var(--verde);
+    color: var(--branco);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    height: 40px;
+    box-shadow: 0 2px 4px 0 var(--roxo-escuro);
+}
+
+.linha button i {
+    margin-right: 12px;
+}
+
+.form-select {
+    border-radius: 20px;
+    padding: 7px;
+}
+
+.titulo-tabela {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--roxo-claro);
+}
+
+.tabela {
+    background-color: var(--roxo-claro);
+    padding: 20px 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 5px
+}
+
+tr {
+    margin: 10px;
+}
+
+tr,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+td {
+    background-color: var(--branco);
+    color: var(--preto);
+    padding: 2px;
+    width: 20%;
+}
+
+.esqueda {
+    border-radius: 20px 0px 0px 20px;
+    padding-left: 10px;
+}
+
+.acoes {
+    border-radius: 0px 20px 20px 0px;
+    width: 10%;
+    text-align: end;
+    padding-right: 10px;
+}
+
+.acoes .material-icons {
+    cursor: pointer;
+    margin-left: 15px;
+    height: 100%;
+    padding-top: 5px;
+}
+
+#lupa-nome, #lupa-categoria {
+    cursor: pointer;
+}
