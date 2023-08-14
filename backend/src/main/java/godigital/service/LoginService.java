@@ -2,11 +2,15 @@ package godigital.service;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import godigital.dto.LoginDTO;
+import godigital.model.Cargo;
 import godigital.model.Colaborador;
+import godigital.repository.CargoRepository;
 import godigital.repository.ColaboradorRepository;
 import godigital.request.LoginRequest;
 
@@ -14,18 +18,32 @@ import godigital.request.LoginRequest;
 public class LoginService {
 
     private ColaboradorRepository colaboradorRepository;
+    private CargoRepository cargoRepository;
     
     @Autowired
-    public LoginService(ColaboradorRepository colaboradorRepository) {
+    public LoginService(ColaboradorRepository colaboradorRepository, CargoRepository cargoRepository) {
     	this.colaboradorRepository = colaboradorRepository;
+    	this.cargoRepository = cargoRepository;
     }
     
-    public boolean login(LoginRequest request) {
-    	Colaborador colaborador = colaboradorRepository.findByNome(request.getUsuario());
+    public LoginDTO login(LoginRequest request) {
+    	Colaborador colaborador = colaboradorRepository.findByNomeContainingIgnoreCase(request.getUsuario()).get(0);
         
         String hash = gerarHash(request.getSenha());
         
-        return colaborador != null && colaborador.getSenha().equals(hash);
+        boolean senhaValida = colaborador != null && colaborador.getSenha().equals(hash);
+        
+        if (!senhaValida)
+        	return new LoginDTO();
+        
+        Optional<Cargo> cargoObtido = cargoRepository.findById(colaborador.getCargo().getId());
+        
+        if (!cargoObtido.isPresent())
+        	return new LoginDTO();
+
+        Cargo cargo = cargoObtido.get();
+        
+        return new LoginDTO(senhaValida, request.getUsuario(), cargo.getId());
     }
     
     public String gerarHash(String senha) {
@@ -48,5 +66,4 @@ public class LoginService {
         	return null;
         }
     }
-
 }

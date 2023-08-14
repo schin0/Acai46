@@ -50,7 +50,6 @@ ALTER TABLE t_gd_colab
 -- Alters por mudança de regras:
 ALTER TABLE t_gd_colab
 
-        
 -- Inserts Cargos:
 INSERT INTO "T_GD_CARGO" (ID_CARGO, DS_CARGO) VALUES ('1', 'Gerente')
 INSERT INTO "T_GD_CARGO" (ID_CARGO, DS_CARGO) VALUES ('2', 'Funcionario')
@@ -59,8 +58,6 @@ INSERT INTO "T_GD_CARGO" (ID_CARGO, DS_CARGO) VALUES ('2', 'Funcionario')
 INSERT INTO t_gd_categoria VALUES('1', 'Lanches')
 INSERT INTO t_gd_categoria VALUES('2', 'Porções')
 INSERT INTO t_gd_categoria VALUES('3', 'Bebidas')
-
-
 
 -- Insert Colaborador:
 INSERT INTO "T_GD_COLAB" (ID_COLAB, T_GD_CARGO_ID_CARGO, CPF, NM_COLABORADOR, DS_EMAIL, SENHA, DT_NASCIMENTO, DT_ADMISSAO) VALUES ('1', '1', '44466655544', 'Gabriel', 'teste@teste.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'))
@@ -78,9 +75,14 @@ BEGIN
     SELECT sequencia_1.NEXTVAL INTO :NEW.id_colab FROM dual;
 END;
 
+CREATE OR REPLACE TRIGGER gatilho_sequencia_produto
+BEFORE INSERT ON t_gd_produto
+FOR EACH ROW
+BEGIN
+    SELECT sequencia_1.NEXTVAL INTO :NEW.id_produto FROM dual;
+END;
+
 -- Alterar primeiro Id após inserção de dados:
 ALTER SEQUENCE sequencia_1 INCREMENT BY 2;
 SELECT sequencia_1.NEXTVAL FROM dual;
 ALTER SEQUENCE sequencia_1 INCREMENT BY 1;
-
-
