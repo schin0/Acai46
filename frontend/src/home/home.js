@@ -28,8 +28,8 @@ function verificarPermissaoGerente(usuarioCargoId) {
 }
 
 function preencherUsuario(dadosUsuario) {
-    document.getElementById('nome-colaborador').textContent  = dadosUsuario.usuario;
-    document.getElementById('cargo-colaborador').textContent  = obterTextoCargo(dadosUsuario.usuarioCargoId);
+    document.getElementById('nome-colaborador').textContent = dadosUsuario.usuario;
+    document.getElementById('cargo-colaborador').textContent = obterTextoCargo(dadosUsuario.usuarioCargoId);
 }
 
 function obterTextoCargo(usuarioCargoId) {
@@ -70,9 +70,11 @@ async function listarModulosGerente() {
             <img src="../../assets/img/fornecedores.png" class="desabilitado"/>
             <p class="desabilitado">CADASTRAR FORNECEDORES</p>
         </div>
-        <div class="modulo-caixa">
-            <img src="../../assets/img/caixa.png" class="desabilitado"/>
-            <p class="desabilitado">CAIXA</p>
+        <div class="modulo-caixa modulo">
+            <a href="../caixa/caixa.html">
+                <img src="../../assets/img/caixa.png"/>
+                <p>CAIXA</p>
+            </a>
         </div>
     `;
 
@@ -97,9 +99,11 @@ async function listarModulosFuncionario() {
             <img src="../../assets/img/vendas.png" class="desabilitado"/>
             <p class="desabilitado">VENDAS</p>
         </div>
-        <div class="modulo-caixa">
-            <img src="../../assets/img/caixa.png" class="desabilitado" />
-            <p class="desabilitado">CAIXA</p>
+        <div class="modulo-caixa modulo">
+            <a href="../caixa/caixa.html">
+                <img src="../../assets/img/caixa.png"/>
+                <p>CAIXA</p>
+            </a>
         </div>
     `;
 
