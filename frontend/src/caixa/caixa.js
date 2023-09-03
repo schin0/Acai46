@@ -17,6 +17,19 @@ function adicionarNoCarrinho(produtoId) {
 
     produtosCarrinho.push(produto);
 
+    calcularSubtotal(true);
+
+    exibirCarrinho();
+}
+
+function removerDoCarrinho(produtoId) {
+    let produto = produtosCarrinho.find(x => x.id == produtoId);
+    let posicao = produtosCarrinho.indexOf(produto);
+
+    produtosCarrinho.splice(posicao, 1);
+
+    calcularSubtotal();
+
     exibirCarrinho();
 }
 
@@ -37,14 +50,31 @@ function exibirCarrinho() {
                 <button onclick="aumentarQuantidade(${produto.id})">+</button>
             </td>
             <td class="txt-center">
-                <button onclick="diminuirQuantidade(${produto.id})">
+                <button onclick="removerDoCarrinho(${produto.id})">
                     <span class="material-symbols-outlined excluir">delete</span>
                 </button>
             </td>
         `;
 
         carrinho.appendChild(tr);
-    })
+    });
+}
+
+function calcularSubtotal(fluxoAdicao = false) {
+    let subtotal = 0;
+
+    produtosCarrinho.forEach(async produto => {
+        if (fluxoAdicao)
+            subtotal += (produto.preco * produto.quantidade);
+        else
+            subtotal -= (produto.preco * produto.quantidade) * - 1;
+    });
+
+    document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
+}
+
+function obterSubtotal() {
+    return parseFloat(document.getElementById('subtotal').textContent.match(/\d+/)[0]);
 }
 
 function verificarProdutoNoCarrinho(produtoId) {
@@ -67,14 +97,21 @@ function aumentarQuantidade(produtoId) {
     let produto = obterProdutoPorId(produtoId);
     produto.quantidade += 1;
 
+    calcularSubtotal(true);
+
     exibirCarrinho();
 }
 
 function diminuirQuantidade(produtoId) {
     let produto = obterProdutoPorId(produtoId);
 
-    if (produto.quantidade > 0)
+    if (produto.quantidade > 1)
         produto.quantidade -= 1;
+    else
+        if (confirm("Deseja mesmo excluir do carrinho?"))
+            removerDoCarrinho(produtoId);
+
+    calcularSubtotal();
 
     exibirCarrinho();
 }
