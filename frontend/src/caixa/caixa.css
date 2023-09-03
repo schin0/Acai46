@@ -121,3 +121,81 @@ section {
 .autocomplete li:hover {
     background: #efefef;
 }
+
+#listaProdutosCarrinho {
+    background-color: var(--roxo-claro);
+    padding: 20px 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-left: 1vw;
+    padding-right: 2vw;
+}
+
+tr {
+    margin: 10px;
+}
+
+tr,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+td {
+    background-color: var(--branco);
+    color: var(--preto);
+    padding: 2px;
+    width: 20%;
+}
+
+.produtos {
+    background-color: #fff;
+}
+
+.txt-end {
+    text-align: end;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+thead tr th {
+    background-color: #E3E3E3;
+    padding: 5px;
+}
+
+tbody tr td {
+    padding: 5px;
+    margin-top: 10px;
+}
+
+tbody tr td button {
+    border: none;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+tbody tr td button span {
+    font-size: 22px !important;
+    margin-top: 7px !important;
+}
+
+thead tr th:first-child,
+.produtos td:first-child {
+    border-radius: 15px 0 0 15px;
+}
+
+thead tr th:last-child,
+.produtos td:last-child {
+    border-radius: 0 15px 15px 0;
+}

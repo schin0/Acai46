@@ -25,14 +25,25 @@ function exibirCarrinho() {
     carrinho.innerHTML = '';
 
     produtosCarrinho.forEach(produto => {
-        let li = document.createElement('li');
-        li.innerHTML = `<tr>
-            <td>${produto.nome}</td>
-            <td>${produto.preco}</td>
-            <td><button onclick="diminuirQuantidade(${produto.id})"">-</button> ${produto.quantidade} <button onclick="aumentarQuantidade(${produto.id})"">+</button></td>
-        </tr>`;
+        let tr = document.createElement('tr');
+        tr.classList.add("produtos");
 
-        carrinho.appendChild(li);
+        tr.innerHTML = `
+            <td class="txt-center">${produto.nome}</td>
+            <td class="txt-center">R$ ${produto.preco}</td>
+            <td class="txt-center">
+                <button onclick="diminuirQuantidade(${produto.id})">-</button>
+                ${produto.quantidade}
+                <button onclick="aumentarQuantidade(${produto.id})">+</button>
+            </td>
+            <td class="txt-center">
+                <button onclick="diminuirQuantidade(${produto.id})">
+                    <span class="material-symbols-outlined excluir">delete</span>
+                </button>
+            </td>
+        `;
+
+        carrinho.appendChild(tr);
     })
 }
 
