@@ -7,29 +7,6 @@ const produtos = [
 
 let produtosCarrinho = [];
 
-function listarProdutos() {
-    const termoPesquisa = document.getElementById('pesquisaProduto').value.toLowerCase();
-    // TODO: Filtrar pelo backend:
-    const produtosFiltrados = produtos.filter(produto => produto.nome.toLowerCase().includes(termoPesquisa));
-
-    const resultados = document.getElementById('resultados');
-    resultados.innerHTML = '';
-
-    produtosFiltrados.forEach(produto => {
-        const produtoDiv = document.createElement('div');
-        produtoDiv.innerHTML = `
-            <p>Id: ${produto.id}</p>
-            <p>Nome: ${produto.nome}</p>
-            <p>Categoria: ${produto.categoriaNome}</p>
-            <p>Descrição: ${produto.descricao}</p>
-            <p>Preço: ${produto.preco}</p>
-            <button onclick="adicionarNoCarrinho(${produto.id})">Adicionar ao Carrinho</button>
-        `;
-
-        resultados.appendChild(produtoDiv);
-    });
-}
-
 function adicionarNoCarrinho(produtoId) {
     if (verificarProdutoNoCarrinho(produtoId)) {
         alert('Produto já adicionado!')
@@ -49,7 +26,11 @@ function exibirCarrinho() {
 
     produtosCarrinho.forEach(produto => {
         let li = document.createElement('li');
-        li.innerHTML = `<p>Produto com id ${produto.id}! Quantidade: ${produto.quantidade}</p> <button onclick="aumentarQuantidade(${produto.id})"">+</button>`;
+        li.innerHTML = `<tr>
+            <td>${produto.nome}</td>
+            <td>${produto.preco}</td>
+            <td><button onclick="diminuirQuantidade(${produto.id})"">-</button> ${produto.quantidade} <button onclick="aumentarQuantidade(${produto.id})"">+</button></td>
+        </tr>`;
 
         carrinho.appendChild(li);
     })
@@ -63,9 +44,83 @@ function obterProdutoPorId(produtoId) {
     return produtos.find(x => x.id == produtoId);
 }
 
+function obterProdutoPorNome(produtoNome) {
+    return produtos.find(x => x.nome.toLocaleLowerCase() == produtoNome.toLocaleLowerCase());
+}
+
+function listarProdutosPorNome(pesquisa) {
+    return produtos.filter(x => x.nome.toLocaleLowerCase().includes(pesquisa.toLocaleLowerCase()));
+}
+
 function aumentarQuantidade(produtoId) {
     let produto = obterProdutoPorId(produtoId);
     produto.quantidade += 1;
 
     exibirCarrinho();
+}
+
+function diminuirQuantidade(produtoId) {
+    let produto = obterProdutoPorId(produtoId);
+
+    if (produto.quantidade > 0)
+        produto.quantidade -= 1;
+
+    exibirCarrinho();
+}
+
+const divInput = document.querySelector(".divInput");
+const termoPesquisa = divInput.querySelector("input");
+const autocomplete = divInput.querySelector(".autocomplete");
+
+termoPesquisa.onkeyup = (e) => {
+    let pesquisa = e.target.value;
+
+    if (pesquisa) {
+        let arrayProdutos = [];
+
+        arrayProdutos = listarProdutosPorNome(pesquisa);
+
+        arrayProdutos = arrayProdutos.map(({ nome }) => `<li>${nome}</li>`);
+
+        divInput.classList.add("active");
+
+        obterOpcoesAutocomplete(arrayProdutos);
+
+        processarItensAutocomplete();
+
+        return;
+    }
+
+    divInput.classList.remove("active");
+}
+
+function selecionarProdutoAutocomplete(produto) {
+    let produtoNome = produto.textContent;
+
+    termoPesquisa.value = produtoNome;
+    divInput.classList.remove("active");
+
+    produto = obterProdutoPorNome(produtoNome);
+
+    if (produto?.id) {
+        adicionarNoCarrinho(produto.id)
+        return;
+    }
+
+    alert('Não é possível adicionar um produto inexistente ao carrinho!')
+}
+
+function obterOpcoesAutocomplete(opcoes) {
+    autocomplete.innerHTML = definirOpcoesAutocomplete(opcoes);
+}
+
+function definirOpcoesAutocomplete(opcoes) {
+    return opcoes.length ? opcoes.join('') : `<li onclick="selecionarProdutoAutocomplete(this)">${termoPesquisa.value}</li>`;
+}
+
+function processarItensAutocomplete() {
+    let itensAutocomplete = autocomplete.querySelectorAll("li");
+
+    for (let i = 0; i < itensAutocomplete.length; i++)
+        itensAutocomplete[i].setAttribute("onclick", "selecionarProdutoAutocomplete(this)");
 }

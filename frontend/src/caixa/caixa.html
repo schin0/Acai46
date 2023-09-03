@@ -36,29 +36,49 @@
         <section>
             <div id="pesquisa">
                 <div id="titulo">
-                    <h1>PDV</h1>
+                    <h4>Ponto De Venda</h4>
                 </div>
-                <div>
-                    <label for="pesquisaProduto">Pesquisar produto por nome:</label>
-                    <input type="text" name="pesquisaProduto" id="pesquisaProduto">
-                    <button onclick="listarProdutos()">Pesquisar</button>
+
+                <div class="divCampoPesquisa">
+                    <div class="divInput">
+                        <input type="text" placeholder="Pesquise o produto pelo nome...">
+                        <div class="autocomplete"></div>
+                    </div>
                 </div>
+            </div>
+            <div id="resumo">
+                <div id="listaProdutosCarrinho">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>$ Unitário</th>
+                                <th>Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="carrinho"></tbody>
+                    </table>
+                    <ul id="listaProdutos"></ul>
+                </div>
+                <div id="valores">
+                    <div class="descricaoValores">
+                        <p>Sub Total</p>
+                        <p>Desconto nos itens</p>
+                        <p>Desconto geral</p>
+                        <p>Acréscimo</p>
+                    </div>
+                    <div class="precos">
+                        <p>R$ 53</p>
+                        <p>R$ 29</p>
+                        <p>R$ 44</p>
+                        <p>R$ 10</p>
+                    </div>
+                </div>
+                <div id="resultados"></div>
             </div>
         </section>
 
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-        <br><br><br>
-        <h1>Ponto de Venda</h1>
 
-        <h2>Resultados da Pesquisa</h2>
-        <div id="resultados"></div>
-
-        <h2>Carrinho</h2>
-        <ul id="carrinho">
-
-        </ul>
     </main>
 
     <!-- Bootstrap JS -->
