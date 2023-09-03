@@ -172,3 +172,11 @@ function processarItensAutocomplete() {
     for (let i = 0; i < itensAutocomplete.length; i++)
         itensAutocomplete[i].setAttribute("onclick", "selecionarProdutoAutocomplete(this)");
 }
+
+document.getElementById('cancelar').addEventListener('click', () => {
+    window.location.href = '../home/home.html';
+});
+
+document.getElementById('formasPagamento').addEventListener('click', () => {
+    window.location.href = '../caixa/formasPagamento/formasPagamento.html';
+});
