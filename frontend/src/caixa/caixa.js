@@ -1,9 +1,5 @@
 // TODO: Listar do backend:
-const produtos = [
-    { id: 1, nome: 'Coxinha de frango', categoriaNome: "Salgados", descricao: '111 - Lorem ipsum dolor ', preco: 10.0, quantidade: 1 },
-    { id: 2, nome: 'Coca Cola', categoriaNome: "Bebidas", descricao: '222 - Lorem ipsum dolor ', preco: 15.0, quantidade: 2 },
-    { id: 3, nome: 'X-Tudo', categoriaNome: "Lanches", descricao: '333 - Lorem ipsum dolor ', preco: 20.0, quantidade: 3 },
-];
+let produtos = [];
 
 let produtosCarrinho = [];
 
@@ -120,15 +116,15 @@ const divInput = document.querySelector(".divInput");
 const termoPesquisa = divInput.querySelector("input");
 const autocomplete = divInput.querySelector(".autocomplete");
 
-termoPesquisa.onkeyup = (e) => {
+termoPesquisa.onkeyup = async (e) => {
     let pesquisa = e.target.value;
 
     if (pesquisa) {
+        await listarProdutos(pesquisa);
+
         let arrayProdutos = [];
 
-        arrayProdutos = listarProdutosPorNome(pesquisa);
-
-        arrayProdutos = arrayProdutos.map(({ nome }) => `<li>${nome}</li>`);
+        arrayProdutos = produtos.map(({ nome }) => `<li>${nome}</li>`);
 
         divInput.classList.add("active");
 
@@ -140,6 +136,17 @@ termoPesquisa.onkeyup = (e) => {
     }
 
     divInput.classList.remove("active");
+}
+
+async function listarProdutos(pesquisa) {
+    await fetch(`http://localhost:8080/produtos?nome=${pesquisa}`, {
+        method: 'GET'
+    })
+        .then(response => response.json())
+        .then(retorno => produtos = retorno)
+        .catch(error => {
+            console.error(error);
+        });
 }
 
 function selecionarProdutoAutocomplete(produto) {
