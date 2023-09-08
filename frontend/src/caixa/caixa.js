@@ -58,6 +58,10 @@ function exibirCarrinho() {
 
 function calcularSubtotal(fluxoAdicao = false) {
     let subtotal = 0;
+    // TODO: remover quando adicionar no produto
+    for (let i = 0; i < produtosCarrinho.length; i++) {
+        produtosCarrinho[i].quantidade = i + 1;
+    }
 
     produtosCarrinho.forEach(async produto => {
         if (fluxoAdicao)
@@ -69,8 +73,8 @@ function calcularSubtotal(fluxoAdicao = false) {
     document.getElementById('subtotal').textContent = `R$ ${subtotal.toFixed(2)}`;
 }
 
-function obterSubtotal() {
-    return parseFloat(document.getElementById('subtotal').textContent.match(/\d+/)[0]);
+function obterValor(campo) {
+    return parseFloat(document.getElementById(campo).textContent.match(/\d+/)[0]);
 }
 
 function verificarProdutoNoCarrinho(produtoId) {
@@ -184,6 +188,27 @@ document.getElementById('cancelar').addEventListener('click', () => {
     window.location.href = '../home/home.html';
 });
 
-document.getElementById('formasPagamento').addEventListener('click', () => {
+document.getElementById('formasPagamento').addEventListener('click', async () => {
+    await inserirDados();
+
     window.location.href = '../caixa/formasPagamento/formasPagamento.html';
 });
+
+async function inserirDados() {
+    let subtotal = obterValor('subtotal');
+    let descontoNosItens = obterValor('descontoNosItens');
+    let descontoGeral = obterValor('descontoGeral');
+    let acrescimo = obterValor('acrescimo');
+
+    let produtos = produtosCarrinho.map(({ id, quantidade }) => ({ id, quantidade }));
+
+    let dadosCaixa = {
+        subtotal,
+        descontoNosItens,
+        descontoGeral,
+        acrescimo,
+        produtos
+    };
+
+    localStorage.setItem('dadosCaixa', JSON.stringify(dadosCaixa));
+}

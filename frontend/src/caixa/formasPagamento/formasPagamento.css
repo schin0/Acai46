@@ -57,15 +57,18 @@
 }
 
 #opcoesPagamento div {
-    min-width: 220px;
+    min-width: 200px;
     border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
-    background-color: var(--roxo);
+    padding: 10px;
     color: var(--branco);
     font-size: 18px;
+}
+
+.roxo {
+    background-color: var(--roxo);
 }
 
 #opcoesPagamento div .material-symbols-outlined {
@@ -89,7 +92,7 @@ section {
 #botoesNavegacao {
     display: flex;
     justify-content: space-between;
-    margin: 2vw 1vw;
+    margin: 5vw 1vw;
 }
 
 #botoesNavegacao button {
@@ -99,7 +102,36 @@ section {
     border: none;
 }
 
-#botoesNavegacao #confirmarVenda {
+#divCalcular {
+    display: flex;
+    justify-content: center;
+}
+
+#calcular {
+    border-radius: 20px;
+    font-size: 14px !important;
+    padding: 10px 20px;
+    border: none;
+    font-weight: bold;
+    max-height: 52px;
+}
+
+.roxo-escuro {
+    background-color: var(--roxo-escuro);
+    padding: 10px;
+    color: var(--branco);
+    font-size: 18px;
+}
+
+#formaPagamento {
+    margin-left: 100px;
+}
+
+#valorPago {
+    margin-right: 40px;
+}
+
+#botoesNavegacao #finalizarVenda {
     background-color: var(--verde);
     color: var(--branco);
 }
@@ -111,4 +143,19 @@ section {
 
 #telaValores {
     min-height: calc(100vh - 235px);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.selecionavel {
+    border: 1px solid #ccc;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.opcaoSelecionada {
+    background-color: var(--amarelo);
+    color: #000 !important;
 }

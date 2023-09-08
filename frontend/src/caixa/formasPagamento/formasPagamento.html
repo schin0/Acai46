@@ -24,7 +24,7 @@
 <body>
     <header>
         <nav class="navbar navbar-light bg-light navbar-telas b-r-20">
-            <a class="navbar-brand txt-branco d-flex align-items-center" href="../home/home.html">
+            <a class="navbar-brand txt-branco d-flex align-items-center" href="../../home/home.html">
                 <span class="material-symbols-outlined" id="logo-sorvete">
                     icecream
                 </span>
@@ -48,31 +48,44 @@
                         <p>Acréscimo</p>
                     </div>
                     <div class="valores">
-                        <p>R$ 7</p>
-                        <p>R$ 645</p>
-                        <p>R$ 3</p>
-                        <p>R$ 53</p>
+                        <p id="subtotal"></p>
+                        <p id="descontoNosItens"></p>
+                        <p id="descontoGeral"></p>
+                        <p id="acrescimo"></p>
                     </div>
                     <div class="total">
                         <h4>Total a pagar</h4>
-                        <h3>R$ 399</h3>
+                        <h3 id="total">R$ 399</h3>
                     </div>
                 </div>
 
-                <div id="opcoesPagamento">
-                    <div id="dinheiro">
-                        <span class="material-symbols-outlined">
-                            payments
-                        </span>
-                        <span class="titulo">Dinheiro</span>
+                <form>
+                    <div id="opcoesPagamento">
+                        <input type="radio" id="dinheiro" name="formaPagamento" value="dinheiro">
+                        <label for="dinheiro">
+                            <div class="selecionavel roxo" id="divDinheiro">
+                                <span class="material-symbols-outlined">
+                                    payments
+                                </span>
+                                <span class="titulo">Dinheiro</span>
+                            </div>
+                        </label>
+                        <input type="radio" id="cartao" name="formaPagamento" value="cartao">
+                        <label for="cartao">
+                            <div class="selecionavel roxo" id="divCartao">
+                                <span class="material-symbols-outlined">
+                                    credit_card
+                                </span>
+                                <span class="titulo">Cartão</span>
+                            </div>
+                        </label>
+
+                        <div class="selecionavel roxo-escuro" id="calcular">
+                            <span class="titulo">Calcular pagamento</span>
+                        </div>
                     </div>
-                    <div id="cartao">
-                        <span class="material-symbols-outlined">
-                            credit_card
-                        </span>
-                        <span class="titulo">Cartão</span>
-                    </div>
-                </div>
+
+                </form>
 
                 <div id="resumoPagamento">
                     <div id="seq" class="resumoVertical">
@@ -81,40 +94,35 @@
                     </div>
                     <div id="formaPagamento" class="resumoVertical">
                         <p class="titulo">Forma de Pagamento</p>
-                        <p>Cartão de Crédito</p>
+                        <p id="formaSelecionada">...</p>
                     </div>
                     <div id="numeroParcelas" class="resumoVertical">
                         <p class="titulo">Número Parcelas</p>
-                        <p>3</p>
+                        <p id="parcelasSelecionadas">...</p>
                     </div>
-                    <div id="valor" class="resumoVertical">
-                        <p class="titulo">Valor</p>
-                        <p>R$ 10</p>
-                    </div>
+                </div>
+
+                <div id="divCalcular">
                 </div>
 
                 <div id="finalizacaoVenda">
                     <div id="totalAPagar" class="resumoVertical">
-                        <p class="titulo">Total A Pagar</p>
-                        <p>R$ 10</p>
+                        <p class="titulo">Total a pagar</p>
+                        <p id="totalFinal">...</p>
                     </div>
                     <div id="valorPago" class="resumoVertical">
-                        <p class="titulo">Valor Pago</p>
-                        <p>R$ 20</p>
-                    </div>
-                    <div id="saldoAPagar" class="resumoVertical">
-                        <p class="titulo">Saldo a pagar</p>
-                        <p>R$ 30</p>
+                        <p class="titulo">Valor pago</p>
+                        <p id="valorPagoFinal">...</p>
                     </div>
                     <div id="troco" class="resumoVertical">
                         <p class="titulo">Troco</p>
-                        <p>R$ 40</p>
+                        <p id="trocoFinal">...</p>
                     </div>
                 </div>
 
                 <div id="botoesNavegacao">
                     <button id="cancelarVenda">Cancelar</button>
-                    <button id="confirmarVenda">Confirmar</button>
+                    <button id="finalizarVenda">Finalizar</button>
                 </div>
             </div>
         </section>
