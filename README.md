@@ -14,7 +14,7 @@
 
 2 - Acesse o arquivo **scriptsGoDigital.txt** dentro do diretório `banco` desse projeto e copie os comandos dele.
 
-3 - Entre no SQL Developer (Oracle), faça login no servidor da FIAP com seu login e rode os comandos copiados no passo anterior.
+3 - Entre no SQL Developer (Oracle), faça login no servidor da FIAP e rode os comandos copiados no passo anterior.
 
 4 - Abra o Eclipse (ou a IDE desejada) no diretório backend;
 
