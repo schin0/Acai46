@@ -62,7 +62,6 @@ function processarDadosColaborador() {
     const email = document.getElementById('email').value;
     const dataNascimento = document.getElementById('data-nascimento').value;
     const dataAdmissao = document.getElementById('data-admissao').value;
-
     const cargo = document.getElementById('cargo');
     const cargoDescricao = cargo.options[cargo.selectedIndex].textContent;
     const cargoId = cargo.value;
