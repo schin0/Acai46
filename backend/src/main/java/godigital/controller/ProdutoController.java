@@ -57,5 +57,4 @@ public class ProdutoController {
         return produtoService.listarProdutoPorNomeECategoria(nome, categoriaId);
     }
 
-
 }

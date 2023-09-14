@@ -1,0 +1,224 @@
+section {
+    margin: 1vw;
+    border-radius: 20px 20px 0 0;
+    background-color: var(--roxo-claro);
+}
+
+#titulo h4 {
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    padding: 15px 0;
+}
+
+#pesquisa {
+    border-radius: 20px 20px 0px 20px;
+    background-color: var(--roxo);
+}
+
+#resumo {
+    display: flex;
+}
+
+#listaProdutosCarrinho {
+    flex: 75%;
+}
+
+#valores p {
+    padding: 0;
+    margin: 0;
+}
+
+.descricaoValores {
+    color: #fff;
+    font-weight: bold;
+    margin-left: 10px;
+    min-height: 160px;
+}
+
+.descricaoValores p {
+    margin: 12px 0 !important;
+}
+
+#valores {
+    flex: 25%;
+    background-color: var(--roxo);
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    min-height: calc(100vh - 340px);
+}
+
+.precos {
+    background-color: #fff;
+    margin: 0 10px;
+    padding: 0 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: var(--roxo-escuro);
+    height: 160px;
+}
+
+.precos p {
+    margin: 12px 0 !important;
+}
+
+.divCampoPesquisa {
+    max-width: 450px;
+    padding: 0 0 25px 25px;
+}
+
+.divCampoPesquisa .divInput {
+    background: #fff;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 5px 3px rgba(0, 0, 0, 0.12);
+}
+
+.divInput input {
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 0 60px 0 20px;
+    font-size: 16px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.divInput.active input {
+    border-radius: 5px 5px 0 0;
+}
+
+.divInput .autocomplete {
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.divInput.active .autocomplete {
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.autocomplete li {
+    list-style: none;
+    padding: 8px 12px;
+    display: none;
+    width: 100%;
+    cursor: default;
+    border-radius: 3px;
+}
+
+.divInput.active .autocomplete li {
+    display: block;
+}
+
+.autocomplete li:hover {
+    background: #efefef;
+}
+
+#listaProdutosCarrinho {
+    background-color: var(--roxo-claro);
+    padding: 20px 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    margin-left: 1vw;
+    padding-right: 2vw;
+}
+
+tr {
+    margin: 10px;
+}
+
+tr,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+
+td {
+    background-color: var(--branco);
+    color: var(--preto);
+    padding: 2px;
+    width: 20%;
+}
+
+.produtos {
+    background-color: #fff;
+}
+
+.txt-end {
+    text-align: end;
+}
+
+.txt-center {
+    text-align: center;
+}
+
+thead tr th {
+    background-color: #E3E3E3;
+    padding: 5px;
+}
+
+tbody tr td {
+    padding: 5px;
+    margin-top: 10px;
+}
+
+tbody tr td button {
+    border: none;
+    background-color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 15px;
+}
+
+tbody tr td button span {
+    font-size: 22px !important;
+    margin-top: 7px !important;
+}
+
+thead tr th:first-child,
+.produtos td:first-child {
+    border-radius: 15px 0 0 15px;
+}
+
+thead tr th:last-child,
+.produtos td:last-child {
+    border-radius: 0 15px 15px 0;
+}
+
+#botoesPdv {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--roxo);
+    padding-bottom: 1vw;
+}
+
+#botoesPdv button {
+    border-radius: 20px;
+    font-size: 13px;
+    padding: 10px 20px;
+    border: none;
+}
+
+#cancelar {
+    background-color: var(--amarelo);
+}
+
+#formasPagamento {
+    background-color: var(--verde);
+    color: var(--branco);
+}
