@@ -28,13 +28,13 @@ CREATE TABLE t_gd_categoria (
 -- Produto:
 
 CREATE TABLE t_gd_produto (
-    
     id_produto NUMBER(10) CONSTRAINT t_gd_produto_pk PRIMARY KEY,
     nm_produto VARCHAR2(50) NOT NULL,
     t_gd_categoria_id_categoria NUMBER(10) CONSTRAINT t_gd_produto_t_gd_categoria_fk REFERENCES t_gd_categoria (id_categoria),
     ds_produto VARCHAR2(100) NOT NULL,
     preco NUMBER(10,2) NOT NULL
 )
+
 -- Primary Keys:
 
 ALTER TABLE t_gd_colab ADD CONSTRAINT t_gd_colab_pk PRIMARY KEY ( id_colab );
@@ -47,9 +47,6 @@ ALTER TABLE t_gd_colab
     ADD CONSTRAINT t_gd_colab_t_gd_cargo_fk FOREIGN KEY ( t_gd_cargo_id_cargo )
         REFERENCES t_gd_cargo ( id_cargo );
 
--- Alters por mudança de regras:
-ALTER TABLE t_gd_colab
-
 -- Inserts Cargos:
 INSERT INTO "T_GD_CARGO" (ID_CARGO, DS_CARGO) VALUES ('1', 'Gerente')
 INSERT INTO "T_GD_CARGO" (ID_CARGO, DS_CARGO) VALUES ('2', 'Funcionario')
@@ -61,6 +58,9 @@ INSERT INTO t_gd_categoria VALUES('3', 'Bebidas')
 
 -- Insert Colaborador:
 INSERT INTO "T_GD_COLAB" (ID_COLAB, T_GD_CARGO_ID_CARGO, CPF, NM_COLABORADOR, DS_EMAIL, SENHA, DT_NASCIMENTO, DT_ADMISSAO) VALUES ('1', '1', '44466655544', 'Gabriel', 'teste@teste.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'))
+
+-- Insert Produto: 
+INSERT INTO "T_GD_PRODUTO" (id_produto, nm_produto, t_gd_categoria_id_categoria, ds_produto, preco) VALUES (1, 'Produto', 1, 'descricao', 10)
 
 -- Criar sequencia de autoincremento :
 CREATE SEQUENCE sequencia_1
