@@ -1,5 +1,7 @@
 // TODO: Listar do backend:
-let produtos = [];
+let produtos = [{ id: 1, nome: 'Coxinha de frango', categoriaNome: "Salgados", descricao: '111 - Lorem ipsum dolor ', preco: 10.0, quantidade: 1 },
+{ id: 2, nome: 'Coca Cola', categoriaNome: "Bebidas", descricao: '222 - Lorem ipsum dolor ', preco: 15.0, quantidade: 1 },
+{ id: 3, nome: 'X-Tudo', categoriaNome: "Lanches", descricao: '333 - Lorem ipsum dolor ', preco: 20.0, quantidade: 1 },];
 
 let produtosCarrinho = [];
 
@@ -59,9 +61,9 @@ function exibirCarrinho() {
 function calcularSubtotal(fluxoAdicao = false) {
     let subtotal = 0;
     // TODO: remover quando adicionar no produto
-    for (let i = 0; i < produtosCarrinho.length; i++) {
-        produtosCarrinho[i].quantidade = i + 1;
-    }
+    // for (let i = 0; i < produtosCarrinho.length; i++) {
+    //     produtosCarrinho[i].quantidade = i + 1;
+    // }
 
     produtosCarrinho.forEach(async produto => {
         if (fluxoAdicao)
@@ -124,11 +126,13 @@ termoPesquisa.onkeyup = async (e) => {
     let pesquisa = e.target.value;
 
     if (pesquisa) {
-        await listarProdutos(pesquisa);
+        // await listarProdutos(pesquisa);
 
         let arrayProdutos = [];
 
-        arrayProdutos = produtos.map(({ nome }) => `<li>${nome}</li>`);
+        arrayProdutos = listarProdutosPorNome(pesquisa);
+
+        arrayProdutos = arrayProdutos.map(({ nome }) => `<li>${nome}</li>`);
 
         divInput.classList.add("active");
 

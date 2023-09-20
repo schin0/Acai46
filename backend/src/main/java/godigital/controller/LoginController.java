@@ -3,6 +3,7 @@ package godigital.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,6 +26,12 @@ public class LoginController {
 	@CrossOrigin(origins = "*")
     @PostMapping()
     public LoginDTO login(@RequestBody LoginRequest loginRequest) {
+		return loginService.login(loginRequest);
+    }
+	
+	@CrossOrigin(origins = "*")
+    @PutMapping()
+    public LoginDTO alterarSenha(@RequestBody LoginRequest loginRequest) {
 		return loginService.login(loginRequest);
     }
 }

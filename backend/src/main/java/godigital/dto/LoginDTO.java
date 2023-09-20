@@ -4,10 +4,15 @@ public class LoginDTO {
 	
     public LoginDTO(){};
     
-    public LoginDTO(boolean acessoLiberado, String usuarioNome, Long usuarioCargoId){
-    	this.acessoLiberado = acessoLiberado;
-    	this.usuarioNome = usuarioNome;
-    	this.usuarioCargoId = usuarioCargoId;    	
+    public LoginDTO(boolean primeiroAcesso) {
+    	setPrimeiroAcesso(primeiroAcesso);
+    };
+    
+    public LoginDTO(boolean acessoLiberado, boolean primeiroAcesso, String usuarioNome, Long usuarioCargoId) {
+    	setAcessoLiberado(acessoLiberado);
+    	setUsuarioNome(usuarioNome);
+    	setUsuarioCargoId(usuarioCargoId);
+    	setPrimeiroAcesso(primeiroAcesso);
     };
 
 	private boolean acessoLiberado;
@@ -15,6 +20,8 @@ public class LoginDTO {
 	private String usuarioNome;
 	
 	private Long usuarioCargoId;
+	
+	private boolean primeiroAcesso;
 
 	public boolean isAcessoLiberado() {
 		return acessoLiberado;
@@ -40,4 +47,11 @@ public class LoginDTO {
 		this.usuarioCargoId = usuarioCargoId;
 	}
 	
+	public boolean isPrimeiroAcesso() {
+		return primeiroAcesso;
+	}
+
+	public void setPrimeiroAcesso(boolean primeiroAcesso) {
+		this.primeiroAcesso = primeiroAcesso;
+	}
 }

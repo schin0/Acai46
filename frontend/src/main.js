@@ -14,6 +14,11 @@ function efetuarLogin(usuario, senha) {
     })
         .then(response => response.json())
         .then(retorno => {
+            if (retorno.primeiroAcesso) {
+                // window.location.href = 'home/home.html';
+                return;
+            }
+
             if (retorno.acessoLiberado) {
                 let dadosUsuario = {
                     usuario,

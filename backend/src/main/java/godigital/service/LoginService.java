@@ -3,6 +3,7 @@ package godigital.service;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,13 @@ public class LoginService {
 
     private ColaboradorRepository colaboradorRepository;
     private CargoRepository cargoRepository;
+    private EmailService emailService;
     
     @Autowired
-    public LoginService(ColaboradorRepository colaboradorRepository, CargoRepository cargoRepository) {
+    public LoginService(ColaboradorRepository colaboradorRepository, CargoRepository cargoRepository, EmailService emailService) {
     	this.colaboradorRepository = colaboradorRepository;
     	this.cargoRepository = cargoRepository;
+    	this.emailService = emailService;
     }
     
     public LoginDTO login(LoginRequest request) {
@@ -36,6 +39,12 @@ public class LoginService {
         if (!senhaValida)
         	return new LoginDTO();
         
+        if (colaborador.getPrimeiroAcesso()) {
+        	enviarEmail(colaborador.getEmail(), "Código de Acesso", processarMensagemPrimeiroAcesso());
+        	
+        	return new LoginDTO(colaborador.getPrimeiroAcesso());
+        }
+        
         Optional<Cargo> cargoObtido = cargoRepository.findById(colaborador.getCargo().getId());
         
         if (!cargoObtido.isPresent())
@@ -43,7 +52,7 @@ public class LoginService {
 
         Cargo cargo = cargoObtido.get();
         
-        return new LoginDTO(senhaValida, request.getUsuario(), cargo.getId());
+        return new LoginDTO(senhaValida, colaborador.getPrimeiroAcesso(), request.getUsuario(), cargo.getId());
     }
     
     public String gerarHash(String senha) {
@@ -62,8 +71,31 @@ public class LoginService {
 
             return hexString.toString();
         } catch (NoSuchAlgorithmException e) {
-            // TODO: Tratar exceção
         	return null;
         }
+    }
+    
+    private void enviarEmail(String destinatario, String assunto, String mensagem) {
+    	emailService.enviarEmail(destinatario, assunto, mensagem);
+    }
+    
+    private String processarMensagemPrimeiroAcesso() {
+    	return "Olá! Vimos que você está tentando acessar nosso sistema pela primeira vez. Para isso, utilize o seguinte código: " + gerarCodigoPrimeiroAcesso();
+    }
+    
+    private String gerarCodigoPrimeiroAcesso() {
+    	String CARACTERES_VALIDOS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    	int quantidadeCaracteres = 5;
+    	
+    	StringBuilder sb = new StringBuilder(quantidadeCaracteres);
+        Random random = new Random();
+
+        for (int i = 0; i < quantidadeCaracteres; i++) {
+            int indice = random.nextInt(CARACTERES_VALIDOS.length());
+            char caractere = CARACTERES_VALIDOS.charAt(indice);
+            sb.append(caractere);
+        }
+
+        return sb.toString();
     }
 }

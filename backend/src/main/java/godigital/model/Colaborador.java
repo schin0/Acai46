@@ -33,6 +33,15 @@ public class Colaborador {
 
     @Column(name = "DT_ADMISSAO")
     private Date dataAdmissao;
+    
+    @Column(name = "PRIMEIRO_ACESSO")
+    private boolean primeiroAcesso;
+    
+    	@Column(name = "CODIGO_ACESSO")
+    private String codigoAcesso;
+    
+    @Column(name = "EXPIRACAO_CODIGO")
+    private Date expiracaoCodigo;
 
     public Colaborador() {
     }
@@ -105,4 +114,29 @@ public class Colaborador {
     public void setDataAdmissao(Date dataAdmissao) {
         this.dataAdmissao = dataAdmissao;
     }
+    
+    public boolean getPrimeiroAcesso() {
+        return primeiroAcesso;
+    }
+
+    public void setPrimeiroAcesso(boolean primeiroAcesso) {
+        this.primeiroAcesso = primeiroAcesso;
+    }
+    
+    public String getCodigoAcesso() {
+		return codigoAcesso;
+	}
+
+	public void setCodigoAcesso(String codigoAcesso) {
+		this.codigoAcesso = codigoAcesso;
+	}
+
+	public Date getExpiracaoCodigo() {
+		return expiracaoCodigo;
+	}
+
+	public void setExpiracaoCodigo(Date expiracaoCodigo) {
+		this.expiracaoCodigo = expiracaoCodigo;
+	}
+	
 }
