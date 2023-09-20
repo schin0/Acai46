@@ -25,7 +25,7 @@ Agora que temos todos os pré-requisitos em ordem, siga os passos abaixo para ex
     
 5.  **Inicie o Frontend**: Abra o VS Code (ou sua IDE preferida) e acesse o diretório frontend. Para iniciar o frontend, você pode usar a extensão **Live Server** no VS Code ou a funcionalidade equivalente em sua IDE escolhida. 🌐
     
-6.  **Faça login no sistema**: Após a inicialização bem-sucedida do frontend e do backend, faça login no sistema com as seguintes credenciais: email [teste@teste.com](mailto:teste@teste.com) e senha 123456. Lembre-se de que esse usuário foi criado durante a execução dos comandos no arquivo "scriptsGoDigital.txt". 🚀
+6.  **Faça login no sistema**: Após a inicialização bem-sucedida do frontend e do backend, faça login no sistema com as seguintes credenciais: usuario teste e senha 123456. Lembre-se de que esse usuário foi criado durante a execução dos comandos no arquivo "scriptsGoDigital.txt". 🚀
     
 7.  **Explore o sistema**: Navegue pelo sistema e explore todas as funcionalidades disponíveis. Sinta-se à vontade para testar e experimentar as diversas características do projeto. 🌟
     
