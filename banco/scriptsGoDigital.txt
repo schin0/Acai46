@@ -33,8 +33,17 @@ CREATE TABLE t_gd_produto (
     nm_produto VARCHAR2(50) NOT NULL,
     t_gd_categoria_id_categoria NUMBER(10) CONSTRAINT t_gd_produto_t_gd_categoria_fk REFERENCES t_gd_categoria (id_categoria),
     ds_produto VARCHAR2(100) NOT NULL,
-    preco NUMBER(10,2) NOT NULL
+    preco NUMBER(10,2) NOT NULL,
+    vl_quantidade NUMBER(10),
+    qt_minima NUMBER(10)	
 )
+
+--incluir atributos de estoques para quem ja criou a tabela produtos
+
+ALTER TABLE t_gd_produto
+ADD vl_quantidade NUMBER(10),
+    qt_minima NUMBER(10);
+
 -- Primary Keys:
 
 ALTER TABLE t_gd_colab ADD CONSTRAINT t_gd_colab_pk PRIMARY KEY ( id_colab );

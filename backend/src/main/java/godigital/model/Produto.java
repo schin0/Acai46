@@ -1,78 +1,111 @@
 package godigital.model;
 
+
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 
+
 @Entity
 @Table(name = "T_GD_PRODUTO")
-
 public class Produto {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "ID_PRODUTO")
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_PRODUTO")
+    private Long id;
 
-	@Column(name = "NM_PRODUTO")
-	private String nome;
+    @Column(name = "NM_PRODUTO")
+    private String nome;
 
-	@ManyToOne
-	@JoinColumn(name = "T_GD_CATEGORIA_ID_CATEGORIA")
-	private Categoria categoria;
+    @ManyToOne
+    @JoinColumn(name = "t_gd_categoria_id_categoria")
+    private Categoria categoria;
 
-	@Column(name = "DS_PRODUTO")
-	private String descricao;
+    @Column(name = "DESCRICAO")
+    private String descricao;
 
-	@Column(name = "PRECO")
-	private BigDecimal preco;
+    @Column(name = "VL_PRECO")
+    private BigDecimal preco;
 
-	public Produto() { };
+    @Column(name = "VL_QUANTIDADE")
+    private Integer quantidade;
 
-	public Produto(String nome, Categoria categoria, String descricao, BigDecimal preco) {
-		this.nome = nome;
-		this.categoria = categoria;
-		this.descricao = descricao;
-		this.preco = preco;
-	}
+    @Column(name = "QT_MINIMA")
+    private Integer quantidadeMinima;
+    public Produto(){};
 
-	public Long getId() {
-		return id;
-	}
+    public Produto(String nome, Categoria categoria, String descricao, BigDecimal preco){
+        this.nome = nome;
+        this.categoria = categoria;
+        this.descricao = descricao;
+        this.preco = preco;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public Produto(String nome, Categoria categoria, String descricao, BigDecimal preco, Integer quantidade, Integer quantidadeMinima){
+        this.nome = nome;
+        this.categoria = categoria;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.quantidadeMinima = quantidadeMinima;
+    }
 
-	public String getNome() {
-		return nome;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public void setCategoria(Categoria categoria) {
-		this.categoria = categoria;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public Categoria getCategoria() {
+        return categoria;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
 
-	public BigDecimal getPreco() {
-		return preco;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	public void setPreco(BigDecimal preco) {
-		this.preco = preco;
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public BigDecimal getPreco() {
+        return preco;
+    }
+
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Integer getQuantidadeMinima() {
+        return quantidadeMinima;
+    }
+
+    public void setQuantidadeMinima(Integer quantidadeMinima) {
+        this.quantidadeMinima = quantidadeMinima;
+    }
+
 }
+

@@ -1,0 +1,35 @@
+FRONT END:
+
+- foi adicionado a pasta estoque.
+
+- foi modificado o arquivo "home.html" introduzindo o acesso do gerente ao estoque.
+
+- foi adicionado no arquivo de cadastro de produto, um objeto que inclui os valores
+quantidade e quantidadeMinima com um valor inicial 0.
+
+
+
+BACK END:
+
+- foi modificado o model 'produto' e incluido os atributos: quantidade e quantidadeMinima,  
+  contrutor e métodos.
+
+- foi alterado o nome da columa id para id_produto na classe 'model/produto'
+  talvez seja necessario mudar no seu banco tambem. 
+
+- foi criado toda a rota do estoque com, controller, service, e DTO.
+
+
+BANCO DE DADOS:
+
+- foi incluido na tabela produto as colunas quantidade e quantidadeMinima.
+
+- quem já tem a tabela produto foi adicionado um sript para alterar e add as novas colunas. 
+
+OBSERVAÇÕES:
+
+os produtos que já foram cadastrado no banco de dados, terá que ser alterado no postman
+com a rota de editar produtos mudando os valores de quantidade e quantidadeMinima que estará com os
+valores null, para algum outro valor numérico.
+
+qualquer inconsistencia nos códigos me manda mensagem, e foi mal pela ultima cagada

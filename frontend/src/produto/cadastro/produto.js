@@ -12,35 +12,48 @@ async function preencherCampos(produto) {
     descricao.value = produto.descricao;
     preco.value = produto.preco;
 }
-
 function processarDadosProduto() {
-    const id = document.getElementById('nome-produto').name;
-    const nome = document.getElementById('nome-produto').value;
-    const preco = document.getElementById('preco').value;
-    const descricao = document.getElementById('descricao').value;
-
-    const categoria = document.getElementById('categoria');
-    const categoriaDescricao = categoria.options[categoria.selectedIndex].textContent;
+    const id = document.getElementById("nome-produto").name;
+    const nome = document.getElementById("nome-produto").value;
+    const preco = document.getElementById("preco").value;
+    const descricao = document.getElementById("descricao").value;
+  
+    const categoria = document.getElementById("categoria");
+    const categoriaDescricao =
+      categoria.options[categoria.selectedIndex].textContent;
     const categoriaId = categoria.value;
-
+  
     const dados = {
-        id: id,
-        categoria: {
-            nome: categoriaDescricao,
-            id: categoriaId
-        },
-        nome: nome,
-        descricao: descricao,
-        preco: preco
+      id: id,
+      categoria: {
+        nome: categoriaDescricao,
+        id: categoriaId,
+      },
+      nome: nome,
+      descricao: descricao,
+      preco: preco,
+    };
+  
+    const addDados = {
+      id: id,
+      categoria: {
+        nome: categoriaDescricao,
+        id: categoriaId,
+      },
+      nome: nome,
+      descricao: descricao,
+      preco: preco,
+      quantidade: 0,
+      quantidadeMinima: 0,
+    };
+  
+    if (id != null && id != "") {
+      editarProduto(dados);
+      return;
     }
-
-    if (id != null && id != '') {
-        editarProduto(dados);
-        return;
-    }
-
-    adicionarProduto(dados);
-}
+  
+    adicionarProduto(addDados);
+  }
 
 function adicionarProduto(dados) {
     fetch(`http://localhost:8080/produtos/adicionar/`, {
