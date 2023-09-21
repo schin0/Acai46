@@ -26,6 +26,12 @@ public class Produto {
 
 	@Column(name = "PRECO")
 	private BigDecimal preco;
+	
+	@Column(name = "QUANTIDADE")
+    private Integer quantidade;
+	
+	@Column(name = "QT_MINIMA")
+    private Integer quantidadeMinima;
 
 	public Produto() { };
 
@@ -35,6 +41,15 @@ public class Produto {
 		this.descricao = descricao;
 		this.preco = preco;
 	}
+	
+	public Produto(String nome, Categoria categoria, String descricao, BigDecimal preco, Integer quantidade, Integer quantidadeMinima){
+        this.nome = nome;
+        this.categoria = categoria;
+        this.descricao = descricao;
+        this.preco = preco;
+        this.quantidade = quantidade;
+        this.quantidadeMinima = quantidadeMinima;
+    }
 
 	public Long getId() {
 		return id;
@@ -75,4 +90,20 @@ public class Produto {
 	public void setPreco(BigDecimal preco) {
 		this.preco = preco;
 	}
+	
+	public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Integer getQuantidadeMinima() {
+        return quantidadeMinima;
+    }
+
+    public void setQuantidadeMinima(Integer quantidadeMinima) {
+        this.quantidadeMinima = quantidadeMinima;
+    }
 }

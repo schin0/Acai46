@@ -57,8 +57,10 @@ async function listarModulosGerente() {
             </a>
         </div>
         <div class="modulo">
-            <img src="../../assets/img/estoque.png" class="desabilitado"/>
-            <p class="desabilitado">EDITAR ESTOQUE</p>
+            <a href="../estoque/estoque-listagem.html">
+                <img src="../../assets/img/estoque.png"/>
+                <p>EDITAR ESTOQUE</p>
+            </a>
         </div>
         <div class="modulo">
             <a href="../colaborador/listagem/listagem.html">

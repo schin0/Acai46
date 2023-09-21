@@ -32,7 +32,9 @@ CREATE TABLE t_gd_produto (
     nm_produto VARCHAR2(50) NOT NULL,
     t_gd_categoria_id_categoria NUMBER(10) CONSTRAINT t_gd_produto_t_gd_categoria_fk REFERENCES t_gd_categoria (id_categoria),
     ds_produto VARCHAR2(100) NOT NULL,
-    preco NUMBER(10,2) NOT NULL
+    preco NUMBER(10,2) NOT NULL,
+    quantidade NUMBER(10),
+    qt_minima NUMBER(10)
 );
 
 -- Primary Keys:
@@ -60,7 +62,7 @@ INSERT INTO t_gd_categoria VALUES('3', 'Bebidas');
 INSERT INTO "T_GD_COLAB" (ID_COLAB, T_GD_CARGO_ID_CARGO, CPF, NM_COLABORADOR, DS_EMAIL, SENHA, DT_NASCIMENTO, DT_ADMISSAO) VALUES ('1', '1', '44466655544', 'teste', 'teste@teste.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), TO_DATE('2022-07-11 00:00:00', 'YYYY-MM-DD HH24:MI:SS'));
 
 -- Insert Produto: 
-INSERT INTO "T_GD_PRODUTO" (id_produto, nm_produto, t_gd_categoria_id_categoria, ds_produto, preco) VALUES (1, 'Produto', 1, 'descricao', 10);
+INSERT INTO "T_GD_PRODUTO" (id_produto, nm_produto, t_gd_categoria_id_categoria, ds_produto, preco) VALUES (1, 'Produto', 1, 'descricao', 10, 15, 3);
 
 -- Criar sequencia de autoincremento :
 CREATE SEQUENCE sequencia_1

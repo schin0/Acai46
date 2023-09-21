@@ -34,12 +34,25 @@ function processarDadosProduto() {
         preco: preco
     }
 
-    if (id != null && id != '') {
+    const produtoNovo = {
+        id: id,
+        categoria: {
+            nome: categoriaDescricao,
+            id: categoriaId,
+        },
+        nome: nome,
+        descricao: descricao,
+        preco: preco,
+        quantidade: 0,
+        quantidadeMinima: 0,
+    };
+
+    if (id != null && id != "") {
         editarProduto(dados);
         return;
     }
 
-    adicionarProduto(dados);
+    adicionarProduto(produtoNovo);
 }
 
 function adicionarProduto(dados) {
