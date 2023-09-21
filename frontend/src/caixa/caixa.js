@@ -1,4 +1,3 @@
-// TODO: Listar do backend:
 let produtos = [];
 
 let produtosCarrinho = [];
@@ -42,7 +41,7 @@ function exibirCarrinho() {
             <td class="txt-center">R$ ${produto.preco}</td>
             <td class="txt-center">
                 <button onclick="diminuirQuantidade(${produto.id})">-</button>
-                ${produto.quantidade}
+                ${produto.quantidade ? produto.quantidade : 1}
                 <button onclick="aumentarQuantidade(${produto.id})">+</button>
             </td>
             <td class="txt-center">
@@ -58,10 +57,6 @@ function exibirCarrinho() {
 
 function calcularSubtotal(fluxoAdicao = false) {
     let subtotal = 0;
-    // TODO: remover quando adicionar no produto
-    for (let i = 0; i < produtosCarrinho.length; i++) {
-        produtosCarrinho[i].quantidade = i + 1;
-    }
 
     produtosCarrinho.forEach(async produto => {
         if (fluxoAdicao)
@@ -95,6 +90,10 @@ function listarProdutosPorNome(pesquisa) {
 
 function aumentarQuantidade(produtoId) {
     let produto = obterProdutoPorId(produtoId);
+
+    if (!produto.quantidade)
+        produto.quantidade = 1;
+
     produto.quantidade += 1;
 
     calcularSubtotal(true);
